@@ -1,10 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Server, Zap } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-minecraft-light to-white">
+    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden bg-gradient-to-b from-minecraft-light to-white">
       <div className="absolute inset-0 bg-gradient-radial from-transparent to-white/50" />
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
