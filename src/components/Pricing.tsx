@@ -48,13 +48,13 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section className="py-24 bg-minecraft-light/30">
+    <section className="py-24 bg-gray-900" id="pricing">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Choose Your Perfect Plan
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Flexible pricing options to match your hosting needs
           </p>
         </div>
@@ -62,40 +62,40 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl bg-white p-8 shadow-lg transition-transform duration-300 hover:-translate-y-2 animate-fade-up ${
+              className={`relative rounded-2xl bg-black/50 p-8 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-2 animate-fade-up ${
                 plan.popular
-                  ? "border-2 border-minecraft-primary ring-2 ring-minecraft-primary ring-opacity-20"
-                  : "border border-gray-100"
+                  ? "border-2 border-minecraft-secondary ring-2 ring-minecraft-secondary ring-opacity-20"
+                  : "border border-white/10"
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="bg-minecraft-primary text-white text-sm font-medium px-4 py-1 rounded-full">
+                  <div className="bg-minecraft-secondary text-white text-sm font-medium px-4 py-1 rounded-full">
                     Most Popular
                   </div>
                 </div>
               )}
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-4">{plan.name}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">{plan.name}</h3>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold">${plan.price}</span>
-                  <span className="text-gray-500">/month</span>
+                  <span className="text-4xl font-bold text-white">${plan.price}</span>
+                  <span className="text-gray-400">/month</span>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-minecraft-primary flex-shrink-0" />
-                    <span className="text-gray-600">{feature}</span>
+                    <Check className="w-5 h-5 text-minecraft-secondary flex-shrink-0" />
+                    <span className="text-gray-400">{feature}</span>
                   </li>
                 ))}
               </ul>
               <Button
                 className={`w-full py-6 text-lg ${
                   plan.popular
-                    ? "bg-minecraft-primary hover:bg-minecraft-accent text-white"
-                    : "bg-minecraft-light hover:bg-minecraft-primary/20 text-minecraft-primary"
+                    ? "bg-minecraft-secondary hover:bg-minecraft-dark text-white"
+                    : "bg-white/10 hover:bg-white/20 text-white"
                 }`}
               >
                 Get Started

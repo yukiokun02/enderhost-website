@@ -8,7 +8,7 @@ import Navigation from "@/components/Navigation";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden pt-16">
+    <div className="min-h-screen bg-black overflow-x-hidden pt-16">
       <Navigation />
       <Hero />
       <Features />
