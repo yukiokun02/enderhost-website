@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
 import Stats from "@/components/Stats";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <Pricing />
       <Features />
       <Stats />
+      <Footer />
       <FloatingChat />
     </div>
   );
