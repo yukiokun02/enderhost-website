@@ -9,9 +9,16 @@ export default function Navigation() {
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Company Name */}
-            <a href="/" className="flex items-center space-x-2 text-white hover:text-minecraft-secondary transition-colors">
-              <Server className="w-6 h-6" />
-              <span className="font-bold text-lg">BlockyHost</span>
+            <a href="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
+              <img 
+                src="/lovable-uploads/e1341b42-612c-4eb3-b5f9-d6ac7e41acf3.png" 
+                alt="EnderHOST Logo" 
+                className="w-8 h-8"
+              />
+              <span className="font-bold text-lg">
+                <span className="text-white">Ender</span>
+                <span className="text-minecraft-secondary">HOST</span>
+              </span>
             </a>
 
             {/* Navigation Links & Buttons */}

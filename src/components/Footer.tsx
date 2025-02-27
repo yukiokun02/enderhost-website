@@ -8,9 +8,16 @@ export default function Footer() {
         <div className="flex flex-col max-w-xl mx-auto">
           {/* Company Info */}
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center space-x-2 mb-6">
-              <Server className="w-6 h-6 text-minecraft-secondary" />
-              <span className="text-2xl font-bold text-white">BlockyHost</span>
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <img 
+                src="/lovable-uploads/e1341b42-612c-4eb3-b5f9-d6ac7e41acf3.png" 
+                alt="EnderHOST Logo" 
+                className="w-8 h-8"
+              />
+              <span className="text-2xl font-bold">
+                <span className="text-white">Ender</span>
+                <span className="text-minecraft-secondary">HOST</span>
+              </span>
             </div>
           </div>
 
@@ -78,7 +85,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="pt-8 border-t border-white/10">
             <p className="text-gray-400 text-center">
-              Copyright © {new Date().getFullYear()} BlockyHost. All rights reserved.
+              Copyright © {new Date().getFullYear()} EnderHOST. All rights reserved.
             </p>
           </div>
         </div>
