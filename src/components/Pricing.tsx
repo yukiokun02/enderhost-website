@@ -1,52 +1,159 @@
 
-import { Check } from "lucide-react";
+import { useState } from "react";
+import { Check, ChevronDown, ChevronUp, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const plans = [
+const allPlans = [
   {
-    name: "Starter",
+    name: "Getting Woods",
     price: 9.99,
     features: [
       "2GB RAM",
-      "10 Player Slots",
-      "SSD Storage",
-      "Automatic Backups",
-      "Basic Support",
+      "100% CPU",
+      "10GB SSD",
+      "1Gbps Bandwidth",
+      "Basic DDoS Protection",
     ],
     popular: false,
   },
   {
-    name: "Professional",
+    name: "Getting an Upgrade",
+    price: 14.99,
+    features: [
+      "4GB RAM",
+      "200% CPU",
+      "15GB SSD",
+      "1Gbps Bandwidth",
+      "Basic DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "Stone Age",
+    price: 19.99,
+    features: [
+      "6GB RAM",
+      "250% CPU",
+      "20GB SSD",
+      "1Gbps Bandwidth",
+      "Basic DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "Acquire Hardware",
     price: 24.99,
     features: [
       "8GB RAM",
-      "40 Player Slots",
-      "SSD Storage",
-      "Daily Backups",
-      "Priority Support",
-      "Custom Domain",
-      "Mod Support",
+      "300% CPU",
+      "25GB SSD",
+      "1Gbps Bandwidth",
+      "Basic DDoS Protection",
     ],
     popular: true,
   },
   {
-    name: "Enterprise",
-    price: 49.99,
+    name: "Isn't It Iron Pick?",
+    price: 29.99,
+    features: [
+      "10GB RAM",
+      "350% CPU",
+      "30GB SSD",
+      "1Gbps Bandwidth",
+      "Basic DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "Diamonds",
+    price: 34.99,
+    features: [
+      "12GB RAM",
+      "400% CPU",
+      "35GB SSD",
+      "1Gbps Bandwidth",
+      "Advanced DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "Ice Bucket Challenge",
+    price: 44.99,
     features: [
       "16GB RAM",
-      "Unlimited Players",
-      "NVMe Storage",
-      "Hourly Backups",
-      "24/7 Premium Support",
-      "Custom Domain",
-      "Mod Support",
-      "Database Access",
+      "450% CPU",
+      "40GB SSD",
+      "1Gbps Bandwidth",
+      "Advanced DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "We Need to Go Deeper",
+    price: 54.99,
+    features: [
+      "20GB RAM",
+      "450% CPU",
+      "45GB SSD",
+      "1Gbps Bandwidth",
+      "Advanced DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "Hidden in the Depths",
+    price: 64.99,
+    features: [
+      "24GB RAM",
+      "500% CPU",
+      "50GB SSD",
+      "1Gbps Bandwidth",
+      "Advanced DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "Cover Me with Debris",
+    price: 74.99,
+    features: [
+      "28GB RAM",
+      "500% CPU",
+      "55GB SSD",
+      "1Gbps Bandwidth",
+      "Advanced DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "The End",
+    price: 99.99,
+    features: [
+      "32GB RAM",
+      "600% CPU",
+      "80GB SSD",
+      "Unmetered Bandwidth",
+      "Advanced DDoS Protection",
+    ],
+    popular: false,
+  },
+  {
+    name: "Sky is the Limit",
+    price: 149.99,
+    features: [
+      "64GB RAM",
+      "800% CPU",
+      "100GB SSD",
+      "Unmetered Bandwidth",
+      "Advanced DDoS Protection",
     ],
     popular: false,
   },
 ];
 
 export default function Pricing() {
+  const [showAllPlans, setShowAllPlans] = useState(false);
+  const displayedPlans = showAllPlans ? allPlans : allPlans.slice(0, 6);
+
   return (
     <section className="py-24 bg-gray-900" id="pricing">
       <div className="container mx-auto px-4">
@@ -55,11 +162,11 @@ export default function Pricing() {
             Choose Your Perfect Plan
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Flexible pricing options to match your hosting needs
+            From beginner to expert, we have the perfect hosting solution for your Minecraft server
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {displayedPlans.map((plan, index) => (
             <div
               key={plan.name}
               className={`relative rounded-2xl bg-black/50 p-8 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-2 animate-fade-up ${
@@ -92,16 +199,39 @@ export default function Pricing() {
                 ))}
               </ul>
               <Button
-                className={`w-full py-6 text-lg ${
+                className={`w-full py-6 text-lg flex items-center justify-center gap-2 ${
                   plan.popular
                     ? "bg-minecraft-secondary hover:bg-minecraft-dark text-white"
                     : "bg-white/10 hover:bg-white/20 text-white"
                 }`}
               >
-                Get Started
+                <ShoppingCart className="w-5 h-5" />
+                Add to Cart
               </Button>
             </div>
           ))}
+        </div>
+        
+        {/* View More/Less Button */}
+        <div className="text-center mt-12">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => setShowAllPlans(!showAllPlans)}
+            className="border-white/20 text-white hover:bg-white/10 inline-flex items-center gap-2"
+          >
+            {showAllPlans ? (
+              <>
+                Show Less Plans
+                <ChevronUp className="w-5 h-5" />
+              </>
+            ) : (
+              <>
+                View More Plans
+                <ChevronDown className="w-5 h-5" />
+              </>
+            )}
+          </Button>
         </div>
       </div>
     </section>
