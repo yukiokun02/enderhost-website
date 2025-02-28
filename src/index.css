@@ -74,16 +74,3 @@
     @apply bg-black text-foreground antialiased;
   }
 }
-
-@layer utilities {
-  .grid-bg {
-    background-size: 50px 50px;
-    background-image: 
-      linear-gradient(to right, rgba(94, 66, 227, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(94, 66, 227, 0.05) 1px, transparent 1px);
-  }
-  
-  .card-blur {
-    box-shadow: 0 0 80px -20px rgba(94, 66, 227, 0.3);
-  }
-}

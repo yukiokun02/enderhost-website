@@ -155,11 +155,8 @@ export default function Pricing() {
   const displayedPlans = showAllPlans ? allPlans : allPlans.slice(0, 6);
 
   return (
-    <section className="py-24 relative overflow-hidden" id="pricing">
-      {/* Background with grid and gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-minecraft-dark to-black grid-bg"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-24 bg-gradient-to-b from-minecraft-dark to-black" id="pricing">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Choose Your Perfect Plan
@@ -172,7 +169,7 @@ export default function Pricing() {
           {displayedPlans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl bg-black/50 p-8 backdrop-blur-xl transition-transform duration-300 hover:-translate-y-2 animate-fade-up card-blur ${
+              className={`relative rounded-2xl bg-black/50 p-8 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-2 animate-fade-up ${
                 plan.popular
                   ? "border-2 border-minecraft-secondary ring-2 ring-minecraft-secondary ring-opacity-20"
                   : "border border-white/10"
