@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Check, ChevronDown, ChevronUp, ShoppingCart } from "lucide-react";
+import { Check, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const allPlans = [
@@ -243,16 +243,10 @@ export default function Pricing() {
                 ))}
               </ul>
               <Button
-                className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 ${
-                  plan.gradient
-                    ? "bg-white hover:bg-white/90 text-minecraft-dark hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
-                    : plan.popular
-                    ? "bg-gradient-to-r from-minecraft-primary to-minecraft-secondary hover:from-minecraft-dark hover:to-minecraft-secondary text-white hover:shadow-[0_0_15px_rgba(94,66,227,0.4)]"
-                    : "bg-white/10 hover:bg-white/20 text-white"
-                }`}
+                className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 
+                  bg-white hover:bg-white/90 text-minecraft-dark hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]`}
               >
-                <ShoppingCart className="w-5 h-5" />
-                {plan.gradient ? "Get Started" : "Add to Cart"}
+                Get Started
               </Button>
             </div>
           ))}
