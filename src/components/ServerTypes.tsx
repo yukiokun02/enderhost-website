@@ -1,53 +1,51 @@
 
-import { Server, Box, GamepadIcon, Package, Layers, Zap, Code, Database } from "lucide-react";
-
 const serverTypes = [
   {
     name: "Vanilla",
     description: "Original Minecraft experience",
-    icon: Box,
+    imageSrc: "/lovable-uploads/dd9e7569-2fd6-4024-98ce-f6e15de312a5.png",
     color: "from-green-500 to-green-700",
   },
   {
     name: "Bukkit",
     description: "Plugin support for servers",
-    icon: Server,
+    imageSrc: "/lovable-uploads/517a0d2d-57cc-4b7f-9f07-f73b8e24d7f7.png",
     color: "from-blue-500 to-blue-700",
   },
   {
     name: "Spigot",
     description: "Optimized Bukkit fork",
-    icon: GamepadIcon,
+    imageSrc: "/lovable-uploads/d0061f99-fbb0-48a4-917d-ea5a0d94dbda.png",
     color: "from-yellow-500 to-yellow-700",
   },
   {
     name: "Paper",
     description: "High performance Spigot fork",
-    icon: Zap,
+    imageSrc: "/lovable-uploads/b5a2e2ef-52e6-4868-9001-4aa6232b1f09.png",
     color: "from-red-500 to-red-700",
   },
   {
     name: "Purpur",
     description: "Paper fork with more features",
-    icon: Package,
+    imageSrc: "/lovable-uploads/67f71f89-8184-4a6f-8e97-47eaa5c7e909.png",
     color: "from-purple-500 to-purple-700",
   },
   {
     name: "Forge",
     description: "Mod support for Minecraft",
-    icon: Layers,
+    imageSrc: "/lovable-uploads/c518c79f-b1b5-4b6a-8b36-6f1eb687bf7b.png",
     color: "from-orange-500 to-orange-700",
   },
   {
     name: "Fabric",
     description: "Lightweight modern modding",
-    icon: Code,
+    imageSrc: "/lovable-uploads/32ae7d2d-65eb-4b47-9c06-c61d76c82313.png",
     color: "from-indigo-500 to-indigo-700",
   },
   {
     name: "Quilt",
     description: "Community-driven modding API",
-    icon: Database,
+    imageSrc: "/lovable-uploads/1812089d-9509-46f3-bc3c-6ad3cc7823d6.png",
     color: "from-pink-500 to-pink-700",
   },
 ];
@@ -72,8 +70,12 @@ export default function ServerTypes() {
               className="flex flex-col items-center bg-black/50 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:border-minecraft-secondary/50 transition-all duration-300 animate-fade-up hover:shadow-[0_0_15px_rgba(94,66,227,0.2)] hover:-translate-y-1"
               style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${type.color} flex items-center justify-center mb-3`}>
-                <type.icon className="w-6 h-6 text-white" />
+              <div className={`w-16 h-16 flex items-center justify-center mb-3 overflow-hidden rounded-lg bg-gradient-to-r ${type.color} p-1`}>
+                <img 
+                  src={type.imageSrc} 
+                  alt={`${type.name} Server`} 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h3 className="text-white font-semibold mb-1 text-center">{type.name}</h3>
               <p className="text-gray-400 text-xs text-center">{type.description}</p>
