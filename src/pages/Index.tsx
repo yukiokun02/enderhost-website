@@ -3,7 +3,7 @@ import FloatingChat from "@/components/FloatingChat";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
-import Stats from "@/components/Stats";
+import ServerTypes from "@/components/ServerTypes";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -24,7 +24,7 @@ const Index = () => {
       <Hero />
       <Pricing />
       <Features />
-      <Stats />
+      <ServerTypes />
       <Footer />
       <FloatingChat />
     </div>
