@@ -30,7 +30,7 @@ const allPlans = [
     ],
     popular: false,
     gradient: true,
-    gradientClass: "from-minecraft-primary/80 to-minecraft-accent/80",
+    gradientClass: "from-minecraft-primary/60 to-minecraft-accent/60",
     stock: 7,
   },
   {
@@ -59,7 +59,7 @@ const allPlans = [
     ],
     popular: true,
     gradient: true,
-    gradientClass: "from-minecraft-secondary/80 to-minecraft-primary/80",
+    gradientClass: "from-minecraft-secondary/60 to-minecraft-primary/60",
     stock: 5,
   },
   {
@@ -88,7 +88,7 @@ const allPlans = [
     ],
     popular: false,
     gradient: true,
-    gradientClass: "from-minecraft-primary/80 to-minecraft-secondary/80",
+    gradientClass: "from-minecraft-primary/60 to-minecraft-secondary/60",
     stock: 3,
   },
   {
@@ -159,7 +159,7 @@ const allPlans = [
     ],
     popular: false,
     gradient: true,
-    gradientClass: "from-[#5E42E3]/80 to-[#2E3BCC]/80",
+    gradientClass: "from-[#5E42E3]/60 to-[#2E3BCC]/60",
     stock: 2,
   },
   {
@@ -203,7 +203,7 @@ export default function Pricing() {
                   : "border border-white/10"
               } ${
                 plan.gradient 
-                  ? `bg-gradient-to-br ${plan.gradientClass}`
+                  ? `bg-gradient-to-br ${plan.gradientClass} bg-black/80`
                   : "bg-black/50"
               }`}
               style={{ 
@@ -244,7 +244,9 @@ export default function Pricing() {
               </ul>
               <Button
                 className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 ${
-                  plan.popular || plan.gradient
+                  plan.gradient
+                    ? "bg-white hover:bg-white/90 text-minecraft-dark hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+                    : plan.popular
                     ? "bg-gradient-to-r from-minecraft-primary to-minecraft-secondary hover:from-minecraft-dark hover:to-minecraft-secondary text-white hover:shadow-[0_0_15px_rgba(94,66,227,0.4)]"
                     : "bg-white/10 hover:bg-white/20 text-white"
                 }`}
