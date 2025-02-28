@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const allPlans = [
   {
     name: "Getting Woods",
-    price: 9.99,
+    price: 159,
     features: [
       "2GB RAM",
       "100% CPU",
@@ -20,7 +20,7 @@ const allPlans = [
   },
   {
     name: "Getting an Upgrade",
-    price: 14.99,
+    price: 349,
     features: [
       "4GB RAM",
       "200% CPU",
@@ -35,7 +35,7 @@ const allPlans = [
   },
   {
     name: "Stone Age",
-    price: 19.99,
+    price: 529,
     features: [
       "6GB RAM",
       "250% CPU",
@@ -49,7 +49,7 @@ const allPlans = [
   },
   {
     name: "Acquire Hardware",
-    price: 24.99,
+    price: 709,
     features: [
       "8GB RAM",
       "300% CPU",
@@ -64,7 +64,7 @@ const allPlans = [
   },
   {
     name: "Isn't It Iron Pick?",
-    price: 29.99,
+    price: 889,
     features: [
       "10GB RAM",
       "350% CPU",
@@ -78,7 +78,7 @@ const allPlans = [
   },
   {
     name: "Diamonds",
-    price: 34.99,
+    price: 1059,
     features: [
       "12GB RAM",
       "400% CPU",
@@ -93,7 +93,7 @@ const allPlans = [
   },
   {
     name: "Ice Bucket Challenge",
-    price: 44.99,
+    price: 1409,
     features: [
       "16GB RAM",
       "450% CPU",
@@ -107,7 +107,7 @@ const allPlans = [
   },
   {
     name: "We Need to Go Deeper",
-    price: 54.99,
+    price: 1759,
     features: [
       "20GB RAM",
       "450% CPU",
@@ -121,7 +121,7 @@ const allPlans = [
   },
   {
     name: "Hidden in the Depths",
-    price: 64.99,
+    price: 2129,
     features: [
       "24GB RAM",
       "500% CPU",
@@ -135,7 +135,7 @@ const allPlans = [
   },
   {
     name: "Cover Me with Debris",
-    price: 74.99,
+    price: 2559,
     features: [
       "28GB RAM",
       "500% CPU",
@@ -149,7 +149,7 @@ const allPlans = [
   },
   {
     name: "The End",
-    price: 99.99,
+    price: 2899,
     features: [
       "32GB RAM",
       "600% CPU",
@@ -164,7 +164,7 @@ const allPlans = [
   },
   {
     name: "Sky is the Limit",
-    price: 149.99,
+    price: 3399,
     features: [
       "64GB RAM",
       "800% CPU",
@@ -230,7 +230,7 @@ export default function Pricing() {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold mb-4 text-white">{plan.name}</h3>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-white">${plan.price}</span>
+                  <span className="text-4xl font-bold text-white">₹{plan.price}</span>
                   <span className={`${plan.gradient ? 'text-white/70' : 'text-gray-400'}`}>/month</span>
                 </div>
               </div>
