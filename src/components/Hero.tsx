@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Server, Zap, LifeBuoy } from "lucide-react";
+import { Server, Zap, LifeBuoy, Clock, Zap as ZapIcon, Globe } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -55,18 +55,51 @@ export default function Hero() {
             </Button>
           </div>
           
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex flex-col items-center animate-fade-up [animation-delay:700ms]">
-              <div className="text-3xl font-bold text-white mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">24/7</div>
-              <div className="text-sm text-gray-200">Live Support</div>
+          {/* Stats section redesigned as glowing cards */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            {/* Live Support Card */}
+            <div 
+              className="rounded-xl p-6 backdrop-blur-sm transition-all duration-500 bg-gradient-to-br from-minecraft-primary/20 to-minecraft-secondary/20 bg-black/50 border border-white/10 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(94,66,227,0.3)] animate-fade-up [animation-delay:700ms]"
+              style={{ boxShadow: '0 0 15px rgba(94, 66, 227, 0.2)' }}
+            >
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-minecraft-primary/30 to-minecraft-secondary/30 flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-minecraft-secondary" />
+                </div>
+              </div>
+              <div className="text-xs uppercase tracking-wider text-gray-400 mb-1">Live Support</div>
+              <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-minecraft-primary to-minecraft-secondary bg-clip-text text-transparent">24/7</div>
+              <div className="text-sm text-gray-300">Round-the-clock expert assistance for your server needs</div>
             </div>
-            <div className="flex flex-col items-center animate-fade-up [animation-delay:800ms]">
-              <div className="text-3xl font-bold text-white mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">5s</div>
-              <div className="text-sm text-gray-200">Deployment Time</div>
+            
+            {/* Deployment Time Card */}
+            <div 
+              className="rounded-xl p-6 backdrop-blur-sm transition-all duration-500 bg-gradient-to-br from-minecraft-secondary/20 to-minecraft-primary/20 bg-black/50 border border-white/10 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(94,66,227,0.3)] animate-fade-up [animation-delay:800ms]"
+              style={{ boxShadow: '0 0 15px rgba(94, 66, 227, 0.2)' }}
+            >
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-minecraft-secondary/30 to-minecraft-primary/30 flex items-center justify-center">
+                  <ZapIcon className="w-6 h-6 text-minecraft-primary" />
+                </div>
+              </div>
+              <div className="text-xs uppercase tracking-wider text-gray-400 mb-1">Deployment Time</div>
+              <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-minecraft-secondary to-minecraft-primary bg-clip-text text-transparent">5s</div>
+              <div className="text-sm text-gray-300">Lightning-fast server setup, ready in seconds</div>
             </div>
-            <div className="flex flex-col items-center animate-fade-up [animation-delay:900ms] col-span-2 sm:col-span-1 mx-auto">
-              <div className="text-3xl font-bold text-white mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Global</div>
-              <div className="text-sm text-gray-200">Server Locations</div>
+            
+            {/* Server Location Card - Changed from Global to India */}
+            <div 
+              className="rounded-xl p-6 backdrop-blur-sm transition-all duration-500 bg-gradient-to-br from-minecraft-primary/20 to-minecraft-secondary/20 bg-black/50 border border-white/10 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(94,66,227,0.3)] animate-fade-up [animation-delay:900ms]"
+              style={{ boxShadow: '0 0 15px rgba(94, 66, 227, 0.2)' }}
+            >
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-minecraft-primary/30 to-minecraft-secondary/30 flex items-center justify-center">
+                  <Globe className="w-6 h-6 text-minecraft-secondary" />
+                </div>
+              </div>
+              <div className="text-xs uppercase tracking-wider text-gray-400 mb-1">Server Location</div>
+              <div className="text-3xl font-bold mb-2 bg-gradient-to-r from-minecraft-primary to-minecraft-secondary bg-clip-text text-transparent">India</div>
+              <div className="text-sm text-gray-300">Optimized for low-latency gaming across the country</div>
             </div>
           </div>
         </div>
