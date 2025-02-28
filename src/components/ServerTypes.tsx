@@ -1,11 +1,11 @@
 
-import { Server, Cube, GamepadIcon } from "lucide-react";
+import { Server, Box, GamepadIcon, Package, Layers, Zap, Code, Database } from "lucide-react";
 
 const serverTypes = [
   {
     name: "Vanilla",
     description: "Original Minecraft experience",
-    icon: Cube,
+    icon: Box,
     color: "from-green-500 to-green-700",
   },
   {
@@ -23,31 +23,31 @@ const serverTypes = [
   {
     name: "Paper",
     description: "High performance Spigot fork",
-    icon: Server,
+    icon: Zap,
     color: "from-red-500 to-red-700",
   },
   {
     name: "Purpur",
     description: "Paper fork with more features",
-    icon: Cube,
+    icon: Package,
     color: "from-purple-500 to-purple-700",
   },
   {
     name: "Forge",
     description: "Mod support for Minecraft",
-    icon: GamepadIcon,
+    icon: Layers,
     color: "from-orange-500 to-orange-700",
   },
   {
     name: "Fabric",
     description: "Lightweight modern modding",
-    icon: Server,
+    icon: Code,
     color: "from-indigo-500 to-indigo-700",
   },
   {
     name: "Quilt",
     description: "Community-driven modding API",
-    icon: Cube,
+    icon: Database,
     color: "from-pink-500 to-pink-700",
   },
 ];
