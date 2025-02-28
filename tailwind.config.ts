@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,11 +54,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         minecraft: {
-          primary: "#33C3F0",
-          secondary: "#9b87f5",
-          accent: "#0EA5E9",
-          light: "#D3E4FD",
-          dark: "#7E69AB",
+          primary: "#2E3BCC", // Deep blue from logo
+          secondary: "#5E42E3", // Purple from logo
+          accent: "#3E4DE6", // Medium blue from logo
+          light: "#D3E1FD", // Light blue accent
+          dark: "#1A1E5A", // Deep dark blue for backgrounds
         },
       },
       borderRadius: {

@@ -155,7 +155,7 @@ export default function Pricing() {
   const displayedPlans = showAllPlans ? allPlans : allPlans.slice(0, 6);
 
   return (
-    <section className="py-24 bg-gray-900" id="pricing">
+    <section className="py-24 bg-gradient-to-b from-minecraft-dark to-black" id="pricing">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
@@ -178,7 +178,7 @@ export default function Pricing() {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="bg-minecraft-secondary text-white text-sm font-medium px-4 py-1 rounded-full">
+                  <div className="bg-gradient-to-r from-minecraft-primary to-minecraft-secondary text-white text-sm font-medium px-4 py-1 rounded-full">
                     Most Popular
                   </div>
                 </div>
@@ -201,7 +201,7 @@ export default function Pricing() {
               <Button
                 className={`w-full py-6 text-lg flex items-center justify-center gap-2 ${
                   plan.popular
-                    ? "bg-minecraft-secondary hover:bg-minecraft-dark text-white"
+                    ? "bg-gradient-to-r from-minecraft-primary to-minecraft-secondary hover:from-minecraft-dark hover:to-minecraft-secondary text-white"
                     : "bg-white/10 hover:bg-white/20 text-white"
                 }`}
               >
@@ -218,7 +218,7 @@ export default function Pricing() {
             variant="outline"
             size="lg"
             onClick={() => setShowAllPlans(!showAllPlans)}
-            className="border-white/20 text-white hover:bg-white/10 inline-flex items-center gap-2"
+            className="border-white/20 text-white hover:bg-white/10 inline-flex items-center gap-2 bg-gradient-to-r from-minecraft-primary/20 to-minecraft-secondary/20 hover:from-minecraft-primary/30 hover:to-minecraft-secondary/30"
           >
             {showAllPlans ? (
               <>

@@ -36,7 +36,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-gradient-to-b from-black to-minecraft-dark/70">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
@@ -54,7 +54,7 @@ export default function Features() {
               className="p-6 rounded-xl border border-white/10 hover:border-minecraft-secondary/50 transition-all duration-300 hover:shadow-lg group animate-fade-up bg-black/50"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-12 h-12 rounded-lg bg-minecraft-secondary/10 flex items-center justify-center mb-4 group-hover:bg-minecraft-secondary/20 transition-colors duration-300">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-minecraft-primary/10 to-minecraft-secondary/10 flex items-center justify-center mb-4 group-hover:from-minecraft-primary/20 group-hover:to-minecraft-secondary/20 transition-colors duration-300">
                 <feature.icon className="w-6 h-6 text-minecraft-secondary" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-white">{feature.title}</h3>
