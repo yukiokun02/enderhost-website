@@ -1,5 +1,4 @@
 
-import FloatingChat from "@/components/FloatingChat";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
@@ -26,7 +25,6 @@ const Index = () => {
       <Features />
       <ServerTypes />
       <Footer />
-      <FloatingChat />
     </div>
   );
 };
