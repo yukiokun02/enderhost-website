@@ -204,7 +204,7 @@ export default function Pricing() {
               } ${
                 plan.gradient 
                   ? `bg-gradient-to-br ${plan.gradientClass}`
-                  : "bg-black/50"
+                  : "bg-[#111111]"
               }`}
               style={{ 
                 animationDelay: `${index * 100}ms`,
