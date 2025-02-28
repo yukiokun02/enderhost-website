@@ -74,3 +74,13 @@
     @apply bg-black text-foreground antialiased;
   }
 }
+
+@layer utilities {
+  .neon-glow {
+    box-shadow: 0 0 15px rgba(94, 66, 227, 0.5), 0 0 30px rgba(94, 66, 227, 0.3);
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 5px rgba(94, 66, 227, 0.8), 0 0 10px rgba(94, 66, 227, 0.4);
+  }
+}

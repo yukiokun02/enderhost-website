@@ -15,6 +15,8 @@ const allPlans = [
       "Basic DDoS Protection",
     ],
     popular: false,
+    gradient: false,
+    stock: null,
   },
   {
     name: "Getting an Upgrade",
@@ -27,6 +29,9 @@ const allPlans = [
       "Basic DDoS Protection",
     ],
     popular: false,
+    gradient: true,
+    gradientClass: "from-minecraft-primary/80 to-minecraft-accent/80",
+    stock: 7,
   },
   {
     name: "Stone Age",
@@ -39,6 +44,8 @@ const allPlans = [
       "Basic DDoS Protection",
     ],
     popular: false,
+    gradient: false,
+    stock: null,
   },
   {
     name: "Acquire Hardware",
@@ -51,6 +58,9 @@ const allPlans = [
       "Basic DDoS Protection",
     ],
     popular: true,
+    gradient: true,
+    gradientClass: "from-minecraft-secondary/80 to-minecraft-primary/80",
+    stock: 5,
   },
   {
     name: "Isn't It Iron Pick?",
@@ -63,6 +73,8 @@ const allPlans = [
       "Basic DDoS Protection",
     ],
     popular: false,
+    gradient: false,
+    stock: null,
   },
   {
     name: "Diamonds",
@@ -75,6 +87,9 @@ const allPlans = [
       "Advanced DDoS Protection",
     ],
     popular: false,
+    gradient: true,
+    gradientClass: "from-minecraft-primary/80 to-minecraft-secondary/80",
+    stock: 3,
   },
   {
     name: "Ice Bucket Challenge",
@@ -87,6 +102,8 @@ const allPlans = [
       "Advanced DDoS Protection",
     ],
     popular: false,
+    gradient: false,
+    stock: null,
   },
   {
     name: "We Need to Go Deeper",
@@ -99,6 +116,8 @@ const allPlans = [
       "Advanced DDoS Protection",
     ],
     popular: false,
+    gradient: false,
+    stock: null,
   },
   {
     name: "Hidden in the Depths",
@@ -111,6 +130,8 @@ const allPlans = [
       "Advanced DDoS Protection",
     ],
     popular: false,
+    gradient: false,
+    stock: null,
   },
   {
     name: "Cover Me with Debris",
@@ -123,6 +144,8 @@ const allPlans = [
       "Advanced DDoS Protection",
     ],
     popular: false,
+    gradient: false,
+    stock: null,
   },
   {
     name: "The End",
@@ -135,6 +158,9 @@ const allPlans = [
       "Advanced DDoS Protection",
     ],
     popular: false,
+    gradient: true,
+    gradientClass: "from-[#5E42E3]/80 to-[#2E3BCC]/80",
+    stock: 2,
   },
   {
     name: "Sky is the Limit",
@@ -147,6 +173,8 @@ const allPlans = [
       "Advanced DDoS Protection",
     ],
     popular: false,
+    gradient: false,
+    stock: null,
   },
 ];
 
@@ -169,12 +197,19 @@ export default function Pricing() {
           {displayedPlans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl bg-black/50 p-8 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-2 animate-fade-up ${
+              className={`relative rounded-2xl p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(94,66,227,0.3)] animate-fade-up ${
                 plan.popular
                   ? "border-2 border-minecraft-secondary ring-2 ring-minecraft-secondary ring-opacity-20"
                   : "border border-white/10"
+              } ${
+                plan.gradient 
+                  ? `bg-gradient-to-br ${plan.gradientClass}`
+                  : "bg-black/50"
               }`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ 
+                animationDelay: `${index * 100}ms`,
+                boxShadow: plan.gradient ? '0 0 15px rgba(94, 66, 227, 0.2)' : 'none'
+              }}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -183,30 +218,39 @@ export default function Pricing() {
                   </div>
                 </div>
               )}
+              
+              {plan.stock && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <div className="bg-yellow-600/80 text-white text-sm font-medium px-4 py-1 rounded-full">
+                    Only {plan.stock} left in stock!
+                  </div>
+                </div>
+              )}
+              
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold mb-4 text-white">{plan.name}</h3>
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-4xl font-bold text-white">${plan.price}</span>
-                  <span className="text-gray-400">/month</span>
+                  <span className={`${plan.gradient ? 'text-white/70' : 'text-gray-400'}`}>/month</span>
                 </div>
               </div>
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-minecraft-secondary flex-shrink-0" />
-                    <span className="text-gray-400">{feature}</span>
+                    <Check className={`w-5 h-5 ${plan.gradient ? 'text-white' : 'text-minecraft-secondary'} flex-shrink-0`} />
+                    <span className={`${plan.gradient ? 'text-white/80' : 'text-gray-400'}`}>{feature}</span>
                   </li>
                 ))}
               </ul>
               <Button
-                className={`w-full py-6 text-lg flex items-center justify-center gap-2 ${
-                  plan.popular
-                    ? "bg-gradient-to-r from-minecraft-primary to-minecraft-secondary hover:from-minecraft-dark hover:to-minecraft-secondary text-white"
+                className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 ${
+                  plan.popular || plan.gradient
+                    ? "bg-gradient-to-r from-minecraft-primary to-minecraft-secondary hover:from-minecraft-dark hover:to-minecraft-secondary text-white hover:shadow-[0_0_15px_rgba(94,66,227,0.4)]"
                     : "bg-white/10 hover:bg-white/20 text-white"
                 }`}
               >
                 <ShoppingCart className="w-5 h-5" />
-                Add to Cart
+                {plan.gradient ? "Get Started" : "Add to Cart"}
               </Button>
             </div>
           ))}
