@@ -55,51 +55,51 @@ export default function Hero() {
             </Button>
           </div>
           
-          {/* Stats section redesigned as more compact glowing cards with white background */}
+          {/* Stats section redesigned as more compact glowing cards */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
             {/* Live Support Card */}
             <div 
-              className="rounded-lg p-4 backdrop-blur-sm transition-all duration-500 bg-white border border-minecraft-secondary/20 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(94,66,227,0.2)] animate-fade-up [animation-delay:700ms] w-[90%] sm:w-full mx-auto"
+              className="rounded-lg p-4 backdrop-blur-sm transition-all duration-500 bg-gradient-to-br from-minecraft-primary/15 to-minecraft-secondary/15 bg-black/50 border border-white/10 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(94,66,227,0.2)] animate-fade-up [animation-delay:700ms] w-[90%] sm:w-full mx-auto"
               style={{ boxShadow: '0 0 10px rgba(94, 66, 227, 0.1)' }}
             >
               <div className="flex justify-center mb-2">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-minecraft-primary/20 to-minecraft-secondary/20 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-minecraft-primary/30 to-minecraft-secondary/30 flex items-center justify-center">
                   <Clock className="w-5 h-5 text-minecraft-secondary" />
                 </div>
               </div>
-              <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">Live Support</div>
+              <div className="text-xs uppercase tracking-wider text-gray-400 mb-1">Live Support</div>
               <div className="text-2xl md:text-3xl font-bold mb-1 bg-gradient-to-r from-minecraft-primary to-minecraft-secondary bg-clip-text text-transparent">24/7</div>
-              <div className="text-xs md:text-sm text-gray-600">Round-the-clock expert assistance</div>
+              <div className="text-xs md:text-sm text-gray-300">Round-the-clock expert assistance</div>
             </div>
             
             {/* Deployment Time Card */}
             <div 
-              className="rounded-lg p-4 backdrop-blur-sm transition-all duration-500 bg-white border border-minecraft-secondary/20 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(94,66,227,0.2)] animate-fade-up [animation-delay:800ms] w-[90%] sm:w-full mx-auto"
+              className="rounded-lg p-4 backdrop-blur-sm transition-all duration-500 bg-gradient-to-br from-minecraft-secondary/15 to-minecraft-primary/15 bg-black/50 border border-white/10 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(94,66,227,0.2)] animate-fade-up [animation-delay:800ms] w-[90%] sm:w-full mx-auto"
               style={{ boxShadow: '0 0 10px rgba(94, 66, 227, 0.1)' }}
             >
               <div className="flex justify-center mb-2">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-minecraft-secondary/20 to-minecraft-primary/20 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-minecraft-secondary/30 to-minecraft-primary/30 flex items-center justify-center">
                   <ZapIcon className="w-5 h-5 text-minecraft-primary" />
                 </div>
               </div>
-              <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">Deployment Time</div>
+              <div className="text-xs uppercase tracking-wider text-gray-400 mb-1">Deployment Time</div>
               <div className="text-2xl md:text-3xl font-bold mb-1 bg-gradient-to-r from-minecraft-secondary to-minecraft-primary bg-clip-text text-transparent">5s</div>
-              <div className="text-xs md:text-sm text-gray-600">Lightning-fast server setup</div>
+              <div className="text-xs md:text-sm text-gray-300">Lightning-fast server setup</div>
             </div>
             
             {/* Server Location Card */}
             <div 
-              className="rounded-lg p-4 backdrop-blur-sm transition-all duration-500 bg-white border border-minecraft-secondary/20 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(94,66,227,0.2)] animate-fade-up [animation-delay:900ms] w-[90%] sm:w-full mx-auto"
+              className="rounded-lg p-4 backdrop-blur-sm transition-all duration-500 bg-gradient-to-br from-minecraft-primary/15 to-minecraft-secondary/15 bg-black/50 border border-white/10 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(94,66,227,0.2)] animate-fade-up [animation-delay:900ms] w-[90%] sm:w-full mx-auto"
               style={{ boxShadow: '0 0 10px rgba(94, 66, 227, 0.1)' }}
             >
               <div className="flex justify-center mb-2">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-minecraft-primary/20 to-minecraft-secondary/20 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-minecraft-primary/30 to-minecraft-secondary/30 flex items-center justify-center">
                   <Globe className="w-5 h-5 text-minecraft-secondary" />
                 </div>
               </div>
-              <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">Server Location</div>
+              <div className="text-xs uppercase tracking-wider text-gray-400 mb-1">Server Location</div>
               <div className="text-2xl md:text-3xl font-bold mb-1 bg-gradient-to-r from-minecraft-primary to-minecraft-secondary bg-clip-text text-transparent">India</div>
-              <div className="text-xs md:text-sm text-gray-600">Low-latency gaming across India</div>
+              <div className="text-xs md:text-sm text-gray-300">Low-latency gaming across India</div>
             </div>
           </div>
         </div>
