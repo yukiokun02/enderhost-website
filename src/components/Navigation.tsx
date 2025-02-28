@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, MessageSquare, LogIn, UserPlus, Menu, X } from "lucide-react";
+import { Server, MessageSquare, LogIn, UserPlus, Menu, X, IndianRupee } from "lucide-react";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -91,9 +91,10 @@ export default function Navigation() {
         <div className="py-3 px-4 flex flex-col">
           <a
             href="#pricing"
-            className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center"
+            className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
             onClick={() => setMobileMenuOpen(false)}
           >
+            <IndianRupee className="w-4 h-4" />
             Pricing
           </a>
           <a
