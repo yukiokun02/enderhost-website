@@ -1,8 +1,15 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, MessageSquare, LogIn, UserPlus } from "lucide-react";
+import { Server, MessageSquare, LogIn, UserPlus, Menu, X } from "lucide-react";
 
 export default function Navigation() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <div className="fixed top-4 left-4 right-4 z-50">
       <nav className="mx-auto max-w-7xl bg-black/80 backdrop-blur-md border border-white/10 rounded-full">
@@ -21,10 +28,10 @@ export default function Navigation() {
               </span>
             </a>
 
-            {/* Navigation Links & Buttons */}
-            <div className="flex items-center">
+            {/* Navigation Links & Buttons - Desktop */}
+            <div className="hidden md:flex items-center">
               {/* Nav Links - increased consistent spacing */}
-              <div className="hidden md:flex items-center space-x-6">
+              <div className="flex items-center space-x-6">
                 <a href="#pricing" className="text-gray-400 hover:text-white transition-colors px-1">
                   Pricing
                 </a>
@@ -38,7 +45,7 @@ export default function Navigation() {
               <div className="flex items-center ml-6">
                 <Button
                   variant="ghost"
-                  className="hidden sm:flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/10 px-4"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/10 px-4"
                 >
                   <LogIn className="w-4 h-4" />
                   Sign In
@@ -48,13 +55,73 @@ export default function Navigation() {
                   className="bg-minecraft-secondary hover:bg-minecraft-dark text-white flex items-center gap-2 rounded-full px-6"
                 >
                   <UserPlus className="w-4 h-4" />
-                  <span className="hidden sm:inline">Sign Up</span>
+                  <span>Sign Up</span>
                 </Button>
               </div>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleMobileMenu}
+                className="text-gray-400 hover:text-white hover:bg-white/10"
+                aria-label="Open menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </Button>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Dropdown */}
+      <div
+        className={`md:hidden bg-black/90 backdrop-blur-md border border-white/10 rounded-2xl mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileMenuOpen
+            ? "max-h-[300px] opacity-100 translate-y-0"
+            : "max-h-0 opacity-0 -translate-y-4 pointer-events-none"
+        }`}
+      >
+        <div className="py-3 px-4 flex flex-col">
+          <a
+            href="#pricing"
+            className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Pricing
+          </a>
+          <a
+            href="#"
+            className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <MessageSquare className="w-4 h-4" />
+            Support
+          </a>
+          <a
+            href="#"
+            className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <LogIn className="w-4 h-4" />
+            Sign In
+          </a>
+          <a
+            href="#"
+            className="mt-2 py-3 px-4 bg-minecraft-secondary hover:bg-minecraft-dark text-white rounded-lg transition-colors flex items-center gap-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <UserPlus className="w-4 h-4" />
+            Sign Up
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
