@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, MessageSquare, LogIn, UserPlus, Menu, X, IndianRupee, LogOut } from "lucide-react";
+import { Server, MessageSquare, LogIn, Menu, X, IndianRupee, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -36,9 +37,10 @@ export default function Navigation() {
     window.dispatchEvent(new Event("storage"));
   };
 
-  const navigateToAuth = (tab: "signin" | "signup") => {
+  const navigateToAuth = () => {
     navigate("/auth");
-    localStorage.setItem("authTab", tab);
+    const currentTab = localStorage.getItem("authTab") || "signin";
+    localStorage.setItem("authTab", currentTab);
     setMobileMenuOpen(false);
   };
 
@@ -81,24 +83,13 @@ export default function Navigation() {
                     Sign Out
                   </Button>
                 ) : (
-                  <>
-                    <Button
-                      onClick={() => navigateToAuth("signin")}
-                      variant="ghost"
-                      className="flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/10 px-4"
-                    >
-                      <LogIn className="w-4 h-4" />
-                      Sign In
-                    </Button>
-                    <div className="w-4"></div>
-                    <Button
-                      onClick={() => navigateToAuth("signup")}
-                      className="bg-minecraft-secondary hover:bg-minecraft-dark text-white flex items-center gap-2 rounded-full px-6"
-                    >
-                      <UserPlus className="w-4 h-4" />
-                      <span>Sign Up</span>
-                    </Button>
-                  </>
+                  <Button
+                    onClick={navigateToAuth}
+                    className="bg-minecraft-secondary hover:bg-minecraft-dark text-white flex items-center gap-2 rounded-full px-6"
+                  >
+                    <LogIn className="w-4 h-4" />
+                    <span>Sign In / Up</span>
+                  </Button>
                 )}
               </div>
             </div>
@@ -159,22 +150,13 @@ export default function Navigation() {
               Sign Out
             </button>
           ) : (
-            <>
-              <button
-                onClick={() => navigateToAuth("signin")}
-                className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
-              >
-                <LogIn className="w-4 h-4" />
-                Sign In
-              </button>
-              <button
-                onClick={() => navigateToAuth("signup")}
-                className="mt-2 py-3 px-4 bg-minecraft-secondary hover:bg-minecraft-dark text-white rounded-lg transition-colors flex items-center gap-2"
-              >
-                <UserPlus className="w-4 h-4" />
-                Sign Up
-              </button>
-            </>
+            <button
+              onClick={navigateToAuth}
+              className="mt-2 py-3 px-4 bg-minecraft-secondary hover:bg-minecraft-dark text-white rounded-lg transition-colors flex items-center gap-2"
+            >
+              <LogIn className="w-4 h-4" />
+              Sign In / Up
+            </button>
           )}
         </div>
       </div>
