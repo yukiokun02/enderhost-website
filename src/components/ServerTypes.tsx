@@ -95,12 +95,14 @@ export default function ServerTypes() {
               className="flex flex-col items-center bg-black/50 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:border-minecraft-secondary/50 transition-all duration-300 animate-fade-up hover:shadow-[0_0_15px_rgba(94,66,227,0.2)] hover:-translate-y-1"
               style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className={`w-16 h-16 flex items-center justify-center mb-3 overflow-hidden rounded-lg bg-gradient-to-r ${type.color} p-1`}>
-                <img 
-                  src={type.imageSrc} 
-                  alt={`${type.name} Server`} 
-                  className="w-full h-full object-contain"
-                />
+              <div className={`w-16 h-16 flex items-center justify-center mb-3 overflow-hidden rounded-lg bg-gradient-to-r ${type.color} p-0.5`}>
+                <div className="w-full h-full bg-black/20 rounded-md p-2 flex items-center justify-center">
+                  <img 
+                    src={type.imageSrc} 
+                    alt={`${type.name} Server`} 
+                    className="w-full h-full object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.3)] filter brightness-110"
+                  />
+                </div>
               </div>
               <h3 className="text-white font-semibold mb-1 text-center">{type.name}</h3>
               <p className="text-gray-400 text-xs text-center">{type.description}</p>
