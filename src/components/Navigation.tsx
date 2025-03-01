@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, LogIn, Menu, X, IndianRupee, LogOut, ChevronDown } from "lucide-react";
+import { Server, LogIn, Menu, X, IndianRupee, LogOut, ChevronDown, Settings, User } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -107,6 +108,26 @@ export default function Navigation() {
                   }`}
                 >
                   <div className="py-3 px-4 flex flex-col">
+                    {isAuthenticated && (
+                      <>
+                        <a
+                          href="/control-panel"
+                          className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+                          onClick={() => setDesktopMenuOpen(false)}
+                        >
+                          <Settings className="w-4 h-4" />
+                          Control Panel
+                        </a>
+                        <a
+                          href="/client-area"
+                          className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+                          onClick={() => setDesktopMenuOpen(false)}
+                        >
+                          <User className="w-4 h-4" />
+                          Client Area
+                        </a>
+                      </>
+                    )}
                     <a
                       href="#pricing"
                       className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
@@ -161,6 +182,26 @@ export default function Navigation() {
         }`}
       >
         <div className="py-3 px-4 flex flex-col">
+          {isAuthenticated && (
+            <>
+              <a
+                href="/control-panel"
+                className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Settings className="w-4 h-4" />
+                Control Panel
+              </a>
+              <a
+                href="/client-area"
+                className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <User className="w-4 h-4" />
+                Client Area
+              </a>
+            </>
+          )}
           <a
             href="#pricing"
             className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
