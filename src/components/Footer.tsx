@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="mb-6 md:mb-0">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src="/lovable-uploads/e1341b42-612c-4eb3-b5f9-d6ac7e41acf3.png" 
+                src="/lovable-uploads/d5ae654c-f14d-4d97-b527-ca032ca18666.png" 
                 alt="EnderHOST Logo" 
                 className="w-10 h-10"
               />
