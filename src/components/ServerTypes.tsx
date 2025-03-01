@@ -48,6 +48,31 @@ const serverTypes = [
     imageSrc: "/lovable-uploads/1812089d-9509-46f3-bc3c-6ad3cc7823d6.png",
     color: "from-pink-500 to-pink-700",
   },
+  // New server types
+  {
+    name: "Velocity",
+    description: "Modern, high-performance proxy",
+    imageSrc: "/lovable-uploads/084aacb0-25b6-4ae9-bdcb-4747cae6efcd.png",
+    color: "from-cyan-400 to-cyan-600",
+  },
+  {
+    name: "BungeeCord",
+    description: "Original proxy server solution",
+    imageSrc: "/lovable-uploads/49ac0a25-d9a1-4f05-9c08-124068bf78f5.png",
+    color: "from-amber-400 to-amber-600",
+  },
+  {
+    name: "GeyserMC",
+    description: "Bedrock to Java connectivity",
+    imageSrc: "/lovable-uploads/b37194dc-12f5-4b46-980a-e6cd44332d52.png",
+    color: "from-blue-400 to-orange-500",
+  },
+  {
+    name: "Sponge",
+    description: "Advanced plugin framework",
+    imageSrc: "/lovable-uploads/45e4aa45-228f-48e6-b19e-e0369749999e.png",
+    color: "from-yellow-400 to-yellow-500",
+  },
 ];
 
 export default function ServerTypes() {
@@ -63,7 +88,7 @@ export default function ServerTypes() {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-7xl mx-auto">
           {serverTypes.map((type, index) => (
             <div
               key={type.name}
