@@ -1,5 +1,6 @@
 
 import { BookOpen, Server, Users, GamepadIcon, CreditCard } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -83,9 +84,9 @@ export default function Footer() {
             <h3 className="text-xl font-semibold text-white mb-6">Legal</h3>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-gray-400 hover:text-minecraft-secondary text-base">
+                <Link to="/terms-of-service" className="text-gray-400 hover:text-minecraft-secondary text-base">
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-gray-400 hover:text-minecraft-secondary text-base">
