@@ -5,6 +5,7 @@ import Pricing from "@/components/Pricing";
 import ServerTypes from "@/components/ServerTypes";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PromoOffer from "@/components/PromoOffer";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       
       <Navigation />
       <Hero />
+      <PromoOffer />
       <Pricing />
       <Features />
       <ServerTypes />
