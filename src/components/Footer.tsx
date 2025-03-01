@@ -64,9 +64,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-minecraft-secondary text-base">
+                <Link to="/privacy-policy" className="text-gray-400 hover:text-minecraft-secondary text-base">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-gray-400 hover:text-minecraft-secondary text-base">
