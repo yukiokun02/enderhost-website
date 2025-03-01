@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, MessageSquare, LogIn, Menu, X, IndianRupee, LogOut } from "lucide-react";
+import { Server, Discord, LogIn, Menu, X, IndianRupee, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -66,8 +66,8 @@ export default function Navigation() {
                 <a href="#pricing" className="text-gray-400 hover:text-white transition-colors px-1">
                   Pricing
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center gap-1 px-1">
-                  <MessageSquare className="w-4 h-4" />
+                <a href="https://discord.gg/bsGPB9VpUY" className="text-gray-400 hover:text-white transition-colors flex items-center gap-1 px-1" target="_blank" rel="noopener noreferrer">
+                  <Discord className="w-4 h-4" />
                   Support
                 </a>
               </div>
@@ -130,11 +130,13 @@ export default function Navigation() {
             Pricing
           </a>
           <a
-            href="#"
+            href="https://discord.gg/bsGPB9VpUY"
             className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
             onClick={() => setMobileMenuOpen(false)}
+            target="_blank" 
+            rel="noopener noreferrer"
           >
-            <MessageSquare className="w-4 h-4" />
+            <Discord className="w-4 h-4" />
             Support
           </a>
           
