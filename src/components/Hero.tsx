@@ -1,7 +1,15 @@
+
 import { Button } from "@/components/ui/button";
 import { Server, Zap, Clock, Zap as ZapIcon, Globe } from "lucide-react";
 
 export default function Hero() {
+  const scrollToPricing = () => {
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
       {/* Background Image - Keeping the same one */}
@@ -49,6 +57,7 @@ export default function Hero() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-minecraft-primary to-minecraft-secondary hover:from-minecraft-primary/90 hover:to-minecraft-secondary/90 text-white px-8 py-7 text-lg rounded-lg flex items-center gap-3 transform transition-all duration-300 hover:scale-105 backdrop-blur-sm shadow-xl font-semibold min-w-[220px]"
+              onClick={scrollToPricing}
             >
               <Zap className="w-5 h-5" />
               Start Hosting Now
