@@ -17,6 +17,7 @@ const allPlans = [
     popular: false,
     gradient: false,
     stock: null,
+    orderLink: "https://billing.enderhost.in/order/getting-woods"
   },
   {
     name: "Getting an Upgrade",
@@ -242,12 +243,23 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Button
-                className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 
-                  bg-white hover:bg-white/90 text-minecraft-dark hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]`}
-              >
-                Get Started
-              </Button>
+              {plan.name === "Getting Woods" ? (
+                <a href={plan.orderLink} target="_blank" rel="noopener noreferrer" className="block">
+                  <Button
+                    className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 
+                      bg-white hover:bg-white/90 text-minecraft-dark hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]`}
+                  >
+                    Get Started
+                  </Button>
+                </a>
+              ) : (
+                <Button
+                  className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 
+                    bg-white hover:bg-white/90 text-minecraft-dark hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]`}
+                >
+                  Get Started
+                </Button>
+              )}
             </div>
           ))}
         </div>
