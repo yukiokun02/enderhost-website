@@ -1,12 +1,12 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, LogIn, Menu, X, IndianRupee, LogOut } from "lucide-react";
+import { Server, LogIn, Menu, X, IndianRupee, LogOut, ChevronDown } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
@@ -29,6 +29,10 @@ export default function Navigation() {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const toggleDesktopMenu = () => {
+    setDesktopMenuOpen(!desktopMenuOpen);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
     setIsAuthenticated(false);
@@ -42,6 +46,7 @@ export default function Navigation() {
     const currentTab = localStorage.getItem("authTab") || "signin";
     localStorage.setItem("authTab", currentTab);
     setMobileMenuOpen(false);
+    setDesktopMenuOpen(false);
   };
 
   return (
@@ -62,21 +67,7 @@ export default function Navigation() {
             </a>
 
             <div className="hidden md:flex items-center">
-              <div className="flex items-center space-x-6">
-                <a href="#pricing" className="text-gray-400 hover:text-white transition-colors px-1">
-                  Pricing
-                </a>
-                <a href="https://discord.gg/bsGPB9VpUY" className="text-gray-400 hover:text-white transition-colors flex items-center gap-1 px-1" target="_blank" rel="noopener noreferrer">
-                  <img 
-                    src="/lovable-uploads/45df2984-1b34-4b54-9443-638b349c655b.png" 
-                    alt="Discord" 
-                    className="w-4 h-4" 
-                  />
-                  Support
-                </a>
-              </div>
-
-              <div className="flex items-center ml-6">
+              <div className="flex items-center mr-4">
                 {isAuthenticated ? (
                   <Button
                     onClick={handleLogout}
@@ -89,12 +80,57 @@ export default function Navigation() {
                 ) : (
                   <Button
                     onClick={navigateToAuth}
-                    className="bg-minecraft-secondary hover:bg-minecraft-dark text-white flex items-center gap-2 rounded-full px-6"
+                    variant="ghost"
+                    className="flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/10 px-4"
                   >
                     <LogIn className="w-4 h-4" />
                     <span>Sign In / Up</span>
                   </Button>
                 )}
+              </div>
+
+              <div className="relative">
+                <Button
+                  onClick={toggleDesktopMenu}
+                  className="bg-minecraft-secondary hover:bg-minecraft-dark text-white flex items-center gap-2 rounded-full px-6"
+                >
+                  <Menu className="w-4 h-4" />
+                  <span>Menu</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${desktopMenuOpen ? 'rotate-180' : ''}`} />
+                </Button>
+
+                <div
+                  className={`absolute right-0 mt-2 bg-black/90 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 ease-in-out w-48 ${
+                    desktopMenuOpen
+                      ? "max-h-[300px] opacity-100 translate-y-0"
+                      : "max-h-0 opacity-0 -translate-y-4 pointer-events-none"
+                  }`}
+                >
+                  <div className="py-3 px-4 flex flex-col">
+                    <a
+                      href="#pricing"
+                      className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+                      onClick={() => setDesktopMenuOpen(false)}
+                    >
+                      <IndianRupee className="w-4 h-4" />
+                      Pricing
+                    </a>
+                    <a
+                      href="https://discord.gg/bsGPB9VpUY"
+                      className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+                      onClick={() => setDesktopMenuOpen(false)}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <img 
+                        src="/lovable-uploads/45df2984-1b34-4b54-9443-638b349c655b.png" 
+                        alt="Discord" 
+                        className="w-4 h-4" 
+                      />
+                      Support
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
