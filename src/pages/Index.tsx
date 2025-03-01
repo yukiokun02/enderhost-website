@@ -22,10 +22,7 @@ const Index = () => {
       
       <Navigation />
       <Hero />
-      {/* Removing extra space by adding a negative margin to create consistent spacing */}
-      <div className="mt-[-120px] md:mt-[-80px]">
-        <PromoOffer />
-      </div>
+      <PromoOffer />
       <Pricing />
       <Features />
       <ServerTypes />
