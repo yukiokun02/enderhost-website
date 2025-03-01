@@ -69,9 +69,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-minecraft-secondary text-base">
+                <Link to="/refund-policy" className="text-gray-400 hover:text-minecraft-secondary text-base">
                   Refund Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,6 +1,7 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 export default function TermsOfService() {
   return (
@@ -44,6 +45,9 @@ export default function TermsOfService() {
             {/* Section 2 */}
             <div>
               <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">2. Refund and Cancellation Policy</h2>
+              <p className="mb-4 text-lg">
+                For detailed information about our refund and cancellation procedures, please visit our complete <Link to="/refund-policy" className="text-minecraft-secondary hover:underline">Refund Policy</Link> page. Here's a summary of key points:
+              </p>
               <ul className="list-disc pl-6 space-y-3 text-lg">
                 <li>Customers can request a full refund within 24 hours of purchase if the service is not delivered as advertised or is not functioning properly due to issues on our end. To request a refund, contact our support team through the official support channels with your order information.</li>
                 <li>Refunds will not be provided for violations of our Terms of Service, or for service cancellations after the initial 24-hour period.</li>
@@ -93,7 +97,7 @@ export default function TermsOfService() {
             <div>
               <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">6. Privacy Policy</h2>
               <p className="text-lg mb-3">
-                By using our services, you agree to our Privacy Policy, which outlines how we handle your data. Key points include:
+                By using our services, you agree to our <Link to="/privacy-policy" className="text-minecraft-secondary hover:underline">Privacy Policy</Link>, which outlines how we handle your data. Key points include:
               </p>
               <ul className="list-disc pl-6 space-y-3 text-lg">
                 <li>We collect only the information necessary to provide our services, including contact details, payment information, and server usage statistics.</li>
