@@ -40,7 +40,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base">
+                <a href="https://panel.enderhost.in" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base" target="_blank" rel="noopener noreferrer">
                   <GamepadIcon className="w-5 h-5" />
                   Game Panel
                 </a>
