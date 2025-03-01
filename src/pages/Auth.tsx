@@ -137,7 +137,7 @@ export default function Auth() {
         <div className="flex justify-center mb-8">
           <a href="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
             <img 
-              src="/lovable-uploads/d5ae654c-f14d-4d97-b527-ca032ca18666.png" 
+              src="/lovable-uploads/e1341b42-612c-4eb3-b5f9-d6ac7e41acf3.png" 
               alt="EnderHOST Logo" 
               className="w-12 h-12"
             />
