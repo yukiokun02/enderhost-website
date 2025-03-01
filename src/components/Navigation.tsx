@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, Discord, LogIn, Menu, X, IndianRupee, LogOut } from "lucide-react";
+import { Server, MessageSquare, LogIn, Menu, X, IndianRupee, LogOut } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -67,7 +67,7 @@ export default function Navigation() {
                   Pricing
                 </a>
                 <a href="https://discord.gg/bsGPB9VpUY" className="text-gray-400 hover:text-white transition-colors flex items-center gap-1 px-1" target="_blank" rel="noopener noreferrer">
-                  <Discord className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4" />
                   Support
                 </a>
               </div>
@@ -136,7 +136,7 @@ export default function Navigation() {
             target="_blank" 
             rel="noopener noreferrer"
           >
-            <Discord className="w-4 h-4" />
+            <MessageSquare className="w-4 h-4" />
             Support
           </a>
           

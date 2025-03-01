@@ -1,5 +1,5 @@
 
-import { BookOpen, Server, Users, GamepadIcon, CreditCard, Discord } from "lucide-react";
+import { BookOpen, Server, Users, GamepadIcon, CreditCard, MessageSquare } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a href="https://discord.gg/bsGPB9VpUY" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base" target="_blank" rel="noopener noreferrer">
-                  <Discord className="w-5 h-5" />
+                  <MessageSquare className="w-5 h-5" />
                   Support
                 </a>
               </li>
