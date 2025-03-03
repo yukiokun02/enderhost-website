@@ -1,8 +1,12 @@
 
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 export default function PrivacyPolicy() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-black overflow-x-hidden pt-16 relative">
       {/* Global Grid Pattern */}
@@ -14,6 +18,15 @@ export default function PrivacyPolicy() {
           backgroundPosition: 'center center'
         }}
       />
+      
+      {/* Back button */}
+      <button 
+        onClick={() => navigate("/")}
+        className="absolute top-8 left-8 p-2 text-gray-400 hover:text-white transition-colors flex items-center gap-2 z-10"
+      >
+        <ArrowLeft size={20} />
+        <span>Back to Home</span>
+      </button>
       
       <Navigation />
 
