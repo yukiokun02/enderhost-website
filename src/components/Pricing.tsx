@@ -228,13 +228,17 @@ const planCategories = [
 ];
 
 export default function Pricing() {
-  const getFeatureIcon = (feature: string) => {
-    if (feature.includes("RAM")) return <Gauge className="w-5 h-5 flex-shrink-0" />;
-    if (feature.includes("CPU")) return <Cpu className="w-5 h-5 flex-shrink-0" />;
-    if (feature.includes("SSD")) return <HardDrive className="w-5 h-5 flex-shrink-0" />;
-    if (feature.includes("Bandwidth")) return <Signal className="w-5 h-5 flex-shrink-0" />;
-    if (feature.includes("Backup")) return <Cloud className="w-5 h-5 flex-shrink-0" />;
-    return <Check className="w-5 h-5 flex-shrink-0" />;
+  const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
+
+  const getFeatureIcon = (feature: string, isHovered: boolean) => {
+    const iconClassName = `w-5 h-5 flex-shrink-0 transition-transform duration-300 ${isHovered ? 'animate-bounce' : ''}`;
+    
+    if (feature.includes("RAM")) return <Gauge className={iconClassName} />;
+    if (feature.includes("CPU")) return <Cpu className={iconClassName} />;
+    if (feature.includes("SSD")) return <HardDrive className={iconClassName} />;
+    if (feature.includes("Bandwidth")) return <Signal className={iconClassName} />;
+    if (feature.includes("Backup")) return <Cloud className={iconClassName} />;
+    return <Check className={`w-5 h-5 flex-shrink-0 ${isHovered ? 'animate-pulse' : ''}`} />;
   };
 
   return (
@@ -311,7 +315,7 @@ export default function Pricing() {
                     <ul className="space-y-3 mb-6">
                       {plan.features.map((feature) => (
                         <li key={feature} className="flex items-center gap-2 text-sm">
-                          {getFeatureIcon(feature)}
+                          {getFeatureIcon(feature, hoveredPlan === plan.name)}
                           <span className="text-white/80">{feature}</span>
                         </li>
                       ))}
@@ -322,6 +326,8 @@ export default function Pricing() {
                         <Button
                           className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
                             ${category.buttonColor} text-white hover:scale-105`}
+                          onMouseEnter={() => setHoveredPlan(plan.name)}
+                          onMouseLeave={() => setHoveredPlan(null)}
                         >
                           Buy Now
                         </Button>
@@ -330,6 +336,8 @@ export default function Pricing() {
                       <Button
                         className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
                           ${category.buttonColor} text-white hover:scale-105`}
+                        onMouseEnter={() => setHoveredPlan(plan.name)}
+                        onMouseLeave={() => setHoveredPlan(null)}
                       >
                         Buy Now
                       </Button>
