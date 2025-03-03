@@ -1,188 +1,220 @@
 
 import { useState } from "react";
-import { Check, ChevronDown, ChevronUp, Cpu, Cloud, HardDrive, Gauge, Signal } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, Cpu, Cloud, HardDrive, Gauge, Signal, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const allPlans = [
+// Group plans into categories
+const planCategories = [
   {
-    name: "Getting Woods",
-    price: 159,
-    features: [
-      "2GB RAM",
-      "100% CPU",
-      "10GB SSD",
-      "1Gbps Bandwidth",
-      "1 Cloud Backup",
+    id: "vanilla",
+    name: "PLAY VANILLA",
+    description: "Ideal for groups looking to run a small server with a few plugins.",
+    color: "bg-blue-800",
+    textColor: "text-blue-400",
+    buttonColor: "bg-blue-500 hover:bg-blue-600",
+    gradient: "from-blue-900/70 to-blue-800/60",
+    plans: [
+      {
+        name: "Getting Woods",
+        price: 159,
+        features: [
+          "2GB RAM",
+          "100% CPU",
+          "10GB SSD",
+          "1Gbps Bandwidth",
+          "1 Cloud Backup",
+        ],
+        icon: "🌲",
+        players: "3+ Players",
+        popular: false,
+        orderLink: "https://billing.enderhost.in/order/getting-woods"
+      },
+      {
+        name: "Getting an Upgrade",
+        price: 349,
+        features: [
+          "4GB RAM",
+          "200% CPU",
+          "15GB SSD",
+          "1Gbps Bandwidth",
+          "1 Cloud Backup",
+        ],
+        icon: "🪓",
+        players: "5+ Players",
+        popular: false,
+      },
+      {
+        name: "Stone Age",
+        price: 529,
+        features: [
+          "6GB RAM",
+          "250% CPU",
+          "20GB SSD",
+          "1Gbps Bandwidth",
+          "2 Cloud Backups",
+        ],
+        icon: "🪨",
+        players: "8+ Players",
+        popular: true,
+        mostPopular: true,
+      },
+      {
+        name: "Acquire Hardware",
+        price: 709,
+        features: [
+          "8GB RAM",
+          "300% CPU",
+          "25GB SSD",
+          "1Gbps Bandwidth",
+          "2 Cloud Backups",
+        ],
+        icon: "⛏️",
+        players: "15+ Players",
+        popular: false,
+      },
     ],
-    popular: false,
-    gradient: false,
-    stock: null,
-    orderLink: "https://billing.enderhost.in/order/getting-woods"
+    included: [
+      "Unlimited Player Slots",
+      "Automatic Backups",
+      "Instant Setup"
+    ]
   },
   {
-    name: "Getting an Upgrade",
-    price: 349,
-    features: [
-      "4GB RAM",
-      "200% CPU",
-      "15GB SSD",
-      "1Gbps Bandwidth",
-      "1 Cloud Backup",
+    id: "modpacks",
+    name: "PLAY WITH MODPACKS",
+    description: "Recommended plans to play a Minecraft Modpack.",
+    color: "bg-red-900",
+    textColor: "text-red-500",
+    buttonColor: "bg-red-500 hover:bg-red-600",
+    gradient: "from-red-900/70 to-red-800/60",
+    plans: [
+      {
+        name: "Isn't It Iron Pick?",
+        price: 889,
+        features: [
+          "10GB RAM",
+          "350% CPU",
+          "30GB SSD",
+          "1Gbps Bandwidth",
+          "2 Cloud Backups",
+        ],
+        icon: "⛏️",
+        players: "20+ Players",
+        popular: false,
+      },
+      {
+        name: "Diamonds",
+        price: 1059,
+        features: [
+          "12GB RAM",
+          "400% CPU",
+          "35GB SSD",
+          "1Gbps Bandwidth",
+          "3 Cloud Backups",
+        ],
+        icon: "💎",
+        players: "25+ Players",
+        popular: true,
+        mostPopular: true,
+      },
+      {
+        name: "Ice Bucket Challenge",
+        price: 1409,
+        features: [
+          "16GB RAM",
+          "450% CPU",
+          "40GB SSD",
+          "1Gbps Bandwidth",
+          "3 Cloud Backups",
+        ],
+        icon: "🧊",
+        players: "30+ Players",
+        popular: false,
+      },
     ],
-    popular: true,
-    gradient: true,
-    gradientClass: "from-minecraft-primary/60 to-minecraft-accent/60",
-    stock: null,
+    included: [
+      "Unlimited Player Slots",
+      "Modpack Installer",
+      "Instant Setup"
+    ]
   },
   {
-    name: "Stone Age",
-    price: 529,
-    features: [
-      "6GB RAM",
-      "250% CPU",
-      "20GB SSD",
-      "1Gbps Bandwidth",
-      "2 Cloud Backups",
+    id: "community",
+    name: "START A COMMUNITY SERVER",
+    description: "Ideal for larger servers that will install many plugins and have many players at the same time.",
+    color: "bg-green-900",
+    textColor: "text-green-500",
+    buttonColor: "bg-green-500 hover:bg-green-600",
+    gradient: "from-green-900/70 to-green-800/60",
+    plans: [
+      {
+        name: "We Need to Go Deeper",
+        price: 1759,
+        features: [
+          "20GB RAM",
+          "450% CPU",
+          "45GB SSD",
+          "1Gbps Bandwidth",
+          "3 Cloud Backups",
+        ],
+        icon: "🔥",
+        players: "40+ Players",
+        popular: false,
+      },
+      {
+        name: "Hidden in the Depths",
+        price: 2129,
+        features: [
+          "24GB RAM",
+          "500% CPU",
+          "50GB SSD",
+          "1Gbps Bandwidth",
+          "4 Cloud Backups",
+        ],
+        icon: "🌋",
+        players: "50+ Players",
+        popular: false,
+      },
+      {
+        name: "The End",
+        price: 2899,
+        features: [
+          "32GB RAM",
+          "600% CPU",
+          "80GB SSD",
+          "Unmetered Bandwidth",
+          "4 Cloud Backups",
+        ],
+        icon: "🌌",
+        players: "60+ Players",
+        popular: true,
+        mostPopular: true,
+      },
+      {
+        name: "Sky is the Limit",
+        price: 3399,
+        features: [
+          "64GB RAM",
+          "800% CPU",
+          "100GB SSD",
+          "Unmetered Bandwidth",
+          "4 Cloud Backups",
+        ],
+        icon: "✨",
+        players: "100+ Players",
+        popular: false,
+      },
     ],
-    popular: false,
-    gradient: false,
-    stock: null,
-  },
-  {
-    name: "Acquire Hardware",
-    price: 709,
-    features: [
-      "8GB RAM",
-      "300% CPU",
-      "25GB SSD",
-      "1Gbps Bandwidth",
-      "2 Cloud Backups",
-    ],
-    popular: true,
-    gradient: true,
-    gradientClass: "from-minecraft-secondary/60 to-minecraft-primary/60",
-    stock: null,
-  },
-  {
-    name: "Isn't It Iron Pick?",
-    price: 889,
-    features: [
-      "10GB RAM",
-      "350% CPU",
-      "30GB SSD",
-      "1Gbps Bandwidth",
-      "2 Cloud Backups",
-    ],
-    popular: false,
-    gradient: false,
-    stock: null,
-  },
-  {
-    name: "Diamonds",
-    price: 1059,
-    features: [
-      "12GB RAM",
-      "400% CPU",
-      "35GB SSD",
-      "1Gbps Bandwidth",
-      "3 Cloud Backups",
-    ],
-    popular: true,
-    gradient: true,
-    gradientClass: "from-minecraft-primary/60 to-minecraft-secondary/60",
-    stock: null,
-  },
-  {
-    name: "Ice Bucket Challenge",
-    price: 1409,
-    features: [
-      "16GB RAM",
-      "450% CPU",
-      "40GB SSD",
-      "1Gbps Bandwidth",
-      "3 Cloud Backups",
-    ],
-    popular: false,
-    gradient: false,
-    stock: null,
-  },
-  {
-    name: "We Need to Go Deeper",
-    price: 1759,
-    features: [
-      "20GB RAM",
-      "450% CPU",
-      "45GB SSD",
-      "1Gbps Bandwidth",
-      "3 Cloud Backups",
-    ],
-    popular: false,
-    gradient: false,
-    stock: null,
-  },
-  {
-    name: "Hidden in the Depths",
-    price: 2129,
-    features: [
-      "24GB RAM",
-      "500% CPU",
-      "50GB SSD",
-      "1Gbps Bandwidth",
-      "4 Cloud Backups",
-    ],
-    popular: false,
-    gradient: false,
-    stock: null,
-  },
-  {
-    name: "Cover Me with Debris",
-    price: 2559,
-    features: [
-      "28GB RAM",
-      "500% CPU",
-      "55GB SSD",
-      "1Gbps Bandwidth",
-      "4 Cloud Backups",
-    ],
-    popular: false,
-    gradient: false,
-    stock: null,
-  },
-  {
-    name: "The End",
-    price: 2899,
-    features: [
-      "32GB RAM",
-      "600% CPU",
-      "80GB SSD",
-      "Unmetered Bandwidth",
-      "4 Cloud Backups",
-    ],
-    popular: true,
-    gradient: true,
-    gradientClass: "from-[#5E42E3]/60 to-[#2E3BCC]/60",
-    stock: null,
-  },
-  {
-    name: "Sky is the Limit",
-    price: 3399,
-    features: [
-      "64GB RAM",
-      "800% CPU",
-      "100GB SSD",
-      "Unmetered Bandwidth",
-      "4 Cloud Backups",
-    ],
-    popular: false,
-    gradient: false,
-    stock: null,
-  },
+    included: [
+      "Unlimited Player Slots",
+      "Plugin Manager",
+      "Instant Setup",
+      "Priority Support"
+    ]
+  }
 ];
 
 export default function Pricing() {
-  const [showAllPlans, setShowAllPlans] = useState(false);
-  const displayedPlans = showAllPlans ? allPlans : allPlans.slice(0, 6);
-
   // Function to get the appropriate icon for each feature
   const getFeatureIcon = (feature: string) => {
     if (feature.includes("RAM")) return <Gauge className="w-5 h-5 flex-shrink-0" />;
@@ -204,88 +236,103 @@ export default function Pricing() {
             From beginner to expert, we have the perfect hosting solution for your Minecraft server
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {displayedPlans.map((plan, index) => (
-            <div
-              key={plan.name}
-              className={`relative rounded-2xl p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(94,66,227,0.3)] animate-fade-up ${
-                plan.popular
-                  ? "border-2 border-minecraft-secondary ring-2 ring-minecraft-secondary ring-opacity-20"
-                  : "border border-white/10"
-              } ${
-                plan.gradient 
-                  ? `bg-gradient-to-br ${plan.gradientClass} bg-black/80`
-                  : "bg-black/50"
-              }`}
-              style={{ 
-                animationDelay: `${index * 100}ms`,
-                boxShadow: plan.gradient ? '0 0 15px rgba(94, 66, 227, 0.2)' : 'none'
-              }}
-            >
-              {plan.gradient && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-minecraft-primary to-minecraft-secondary text-white text-sm font-medium px-4 py-1 rounded-full">
-                    Most Popular
-                  </div>
-                </div>
-              )}
+        
+        <div className="max-w-6xl mx-auto space-y-24">
+          {planCategories.map((category) => (
+            <div key={category.id} className={`rounded-3xl overflow-hidden relative`}>
+              {/* Category Header */}
+              <div className={`p-8 ${category.color} bg-opacity-20`} 
+                   style={{backgroundImage: `linear-gradient(to right, ${category.gradient})`}}>
+                <h3 className="flex items-center gap-2">
+                  <span className={`text-2xl font-bold ${category.textColor}`}>{category.name}</span>
+                </h3>
+                <p className="text-white/80 mt-2">{category.description}</p>
+              </div>
               
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-4 text-white">{plan.name}</h3>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-white">₹{plan.price}</span>
-                  <span className={`${plan.gradient ? 'text-white/70' : 'text-gray-400'}`}>/month</span>
+              {/* Plans Grid */}
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${Math.min(category.plans.length, 4)} gap-4 p-4 bg-black/50 backdrop-blur-sm`}>
+                {category.plans.map((plan) => (
+                  <div 
+                    key={plan.name}
+                    className={`relative rounded-xl p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(94,66,227,0.3)] ${
+                      plan.mostPopular
+                        ? "border-2 border-opacity-50 shadow-lg"
+                        : "border border-white/10"
+                    }`}
+                    style={{
+                      borderColor: plan.mostPopular ? (category.textColor.includes('blue') ? '#3B82F6' : 
+                                                      category.textColor.includes('red') ? '#EF4444' : 
+                                                      '#10B981') : 'rgba(255,255,255,0.1)',
+                      backgroundColor: plan.mostPopular ? 'rgba(0,0,0,0.7)' : 'rgba(0,0,0,0.5)'
+                    }}
+                  >
+                    {plan.mostPopular && (
+                      <div className="absolute -top-3 right-4 rotate-2 z-10">
+                        <div className="bg-gradient-to-r from-minecraft-primary to-minecraft-secondary text-white text-xs font-medium px-3 py-1 rounded-full">
+                          MOST POPULAR
+                        </div>
+                      </div>
+                    )}
+                    
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-2xl">{plan.icon}</span>
+                      <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10">
+                        <Users className="w-3.5 h-3.5" />
+                        <span className="text-sm text-white/80">{plan.players}</span>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-2 text-white">{plan.name}</h3>
+                    
+                    <div className="flex items-baseline mb-4">
+                      <span className="text-3xl font-bold text-white">₹{plan.price}</span>
+                      <span className="text-white/70 ml-1">/month</span>
+                    </div>
+                    
+                    <ul className="space-y-3 mb-6">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-sm">
+                          {getFeatureIcon(feature)}
+                          <span className="text-white/80">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    {plan.name === "Getting Woods" ? (
+                      <a href={plan.orderLink} target="_blank" rel="noopener noreferrer" className="block">
+                        <Button
+                          className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
+                            ${category.buttonColor} text-white`}
+                        >
+                          Add To Cart
+                        </Button>
+                      </a>
+                    ) : (
+                      <Button
+                        className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
+                          ${category.buttonColor} text-white`}
+                      >
+                        Add To Cart
+                      </Button>
+                    )}
+                  </div>
+                ))}
+              </div>
+              
+              {/* Features included with all plans in this category */}
+              <div className="px-8 py-4 bg-black/70 border-t border-white/10">
+                <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+                  <div className="text-white/90 font-medium">INCLUDED ON ALL SERVERS:</div>
+                  {category.included.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2 text-white/70">
+                      <Check className="w-4 h-4" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3">
-                    {getFeatureIcon(feature)}
-                    <span className={`${plan.gradient ? 'text-white/80' : 'text-gray-400'}`}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              {plan.name === "Getting Woods" ? (
-                <a href={plan.orderLink} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button
-                    className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 
-                      bg-white hover:bg-white/90 text-minecraft-dark hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]`}
-                  >
-                    Get Started
-                  </Button>
-                </a>
-              ) : (
-                <Button
-                  className={`w-full py-6 text-lg flex items-center justify-center gap-2 transition-all duration-300 
-                    bg-white hover:bg-white/90 text-minecraft-dark hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]`}
-                >
-                  Get Started
-                </Button>
-              )}
             </div>
           ))}
-        </div>
-        
-        {/* View More/Less Button */}
-        <div className="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => setShowAllPlans(!showAllPlans)}
-            className="border-white/20 text-white hover:bg-white/10 inline-flex items-center gap-2 bg-gradient-to-r from-minecraft-primary/20 to-minecraft-secondary/20 hover:from-minecraft-primary/30 hover:to-minecraft-secondary/30"
-          >
-            {showAllPlans ? (
-              <>
-                Show Less Plans
-                <ChevronUp className="w-5 h-5" />
-              </>
-            ) : (
-              <>
-                View More Plans
-                <ChevronDown className="w-5 h-5" />
-              </>
-            )}
-          </Button>
         </div>
       </div>
     </section>
