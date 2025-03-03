@@ -13,12 +13,9 @@ const Index = () => {
     <div className="min-h-screen bg-black overflow-hidden pt-16 relative">
       {/* Global Grid Pattern */}
       <div 
-        className="fixed inset-0 opacity-10 mix-blend-soft-light pointer-events-none"
+        className="fixed inset-0 grid-background"
         style={{ 
-          backgroundImage: `linear-gradient(#8E9196 0.5px, transparent 0.5px), linear-gradient(to right, #8E9196 0.5px, transparent 0.5px)`,
-          backgroundSize: '40px 40px',
-          backgroundPosition: 'center center',
-          zIndex: -1
+          zIndex: 0
         }}
       />
       

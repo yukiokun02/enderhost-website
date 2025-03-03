@@ -49,3 +49,11 @@
   position: relative;
   z-index: 1;
 }
+
+/* Fix for max-width constraint */
+@media screen and (min-width: 1280px) {
+  #root {
+    max-width: 100%;
+    padding: 0;
+  }
+}
