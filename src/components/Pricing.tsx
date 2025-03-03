@@ -24,7 +24,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "1 Cloud Backup",
         ],
-        icon: "🌲",
+        icon: "Oak Log",
         players: "3+ Players",
         popular: false,
         orderLink: "https://billing.enderhost.in/order/getting-woods"
@@ -39,7 +39,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "1 Cloud Backup",
         ],
-        icon: "🪓",
+        icon: "Stone Pickaxe",
         players: "5+ Players",
         popular: false,
       },
@@ -53,7 +53,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "2 Cloud Backups",
         ],
-        icon: "🪨",
+        icon: "Cobblestone",
         players: "8+ Players",
         popular: true,
         mostPopular: true,
@@ -68,7 +68,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "2 Cloud Backups",
         ],
-        icon: "⛏️",
+        icon: "Iron Pickaxe",
         players: "15+ Players",
         popular: false,
       },
@@ -98,7 +98,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "2 Cloud Backups",
         ],
-        icon: "⛏️",
+        icon: "Iron Ore",
         players: "20+ Players",
         popular: false,
       },
@@ -112,7 +112,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "3 Cloud Backups",
         ],
-        icon: "💎",
+        icon: "Diamond",
         players: "25+ Players",
         popular: true,
         mostPopular: true,
@@ -127,7 +127,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "3 Cloud Backups",
         ],
-        icon: "🧊",
+        icon: "Ice Block",
         players: "30+ Players",
         popular: false,
       },
@@ -157,7 +157,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "3 Cloud Backups",
         ],
-        icon: "🔥",
+        icon: "Obsidian",
         players: "40+ Players",
         popular: false,
       },
@@ -171,7 +171,7 @@ const planCategories = [
           "1Gbps Bandwidth",
           "4 Cloud Backups",
         ],
-        icon: "🌋",
+        icon: "Ancient Debris",
         players: "50+ Players",
         popular: false,
       },
@@ -185,7 +185,7 @@ const planCategories = [
           "Unmetered Bandwidth",
           "4 Cloud Backups",
         ],
-        icon: "🌌",
+        icon: "End Portal Frame",
         players: "60+ Players",
         popular: true,
         mostPopular: true,
@@ -200,7 +200,7 @@ const planCategories = [
           "Unmetered Bandwidth",
           "4 Cloud Backups",
         ],
-        icon: "✨",
+        icon: "Elytra",
         players: "100+ Players",
         popular: false,
       },
@@ -275,7 +275,7 @@ export default function Pricing() {
                     )}
                     
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-2xl">{plan.icon}</span>
+                      <span className="text-white font-minecraft text-lg">{plan.icon}</span>
                       <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10">
                         <Users className="w-3.5 h-3.5" />
                         <span className="text-sm text-white/80">{plan.players}</span>
