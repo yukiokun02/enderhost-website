@@ -32,7 +32,7 @@ export default function Footer() {
               <li>
                 <a href="https://discord.gg/bsGPB9VpUY" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base" target="_blank" rel="noopener noreferrer">
                   <img 
-                    src="/lovable-uploads/45df2984-1b34-4b54-9443-638b349c655b.png" 
+                    src="/lovable-uploads/6b690be5-a7fe-4753-805d-0441a00e0182.png" 
                     alt="Discord" 
                     className="w-5 h-5" 
                   />
