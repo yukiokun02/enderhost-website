@@ -1,19 +1,20 @@
+
 import { useState } from "react";
 import { Check, ChevronDown, ChevronUp, Cpu, Cloud, HardDrive, Gauge, Signal, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const minecraftItems = {
-  "Oak Log": "/lovable-uploads/e1341b42-612c-4eb3-b5f9-d6ac7e41acf3.png",
-  "Stone Pickaxe": "/lovable-uploads/32ae7d2d-65eb-4b47-9c06-c61d76c82313.png", 
-  "Cobblestone": "/lovable-uploads/b37194dc-12f5-4b46-980a-e6cd44332d52.png",
-  "Iron Pickaxe": "/lovable-uploads/d0061f99-fbb0-48a4-917d-ea5a0d94dbda.png",
-  "Iron Ore": "/lovable-uploads/517a0d2d-57cc-4b7f-9f07-f73b8e24d7f7.png",
-  "Diamond": "/lovable-uploads/49ac0a25-d9a1-4f05-9c08-124068bf78f5.png",
-  "Ice Block": "/lovable-uploads/b5a2e2ef-52e6-4868-9001-4aa6232b1f09.png",
-  "Obsidian": "/lovable-uploads/9de719a9-cca7-4faa-bc79-f87f3245bd99.png",
-  "Ancient Debris": "/lovable-uploads/45df2984-1b34-4b54-9443-638b349c655b.png",
-  "End Portal Frame": "/lovable-uploads/45e4aa45-228f-48e6-b19e-e0369749999e.png",
-  "Elytra": "/lovable-uploads/dd9e7569-2fd6-4024-98ce-f6e15de312a5.png"
+  "Oak Log": "/lovable-uploads/9b5fa930-abf6-434b-b424-efa2c7da4843.png",
+  "Stone Pickaxe": "/lovable-uploads/709d4d94-57cc-473b-ba6b-ddde49e58729.png", 
+  "Cobblestone": "/lovable-uploads/97fc8ca9-a0f0-42c1-b355-8f5edd9c8e90.png",
+  "Iron Pickaxe": "/lovable-uploads/573f8adb-bb56-458c-b9bd-eb7db91fb9ee.png",
+  "Iron Ore": "/lovable-uploads/f70619f2-e8e9-459f-b10a-1f81111f0133.png",
+  "Diamond": "/lovable-uploads/536cdfad-ca51-4101-9b13-5df237b1bfac.png",
+  "Ice Block": "/lovable-uploads/dbb67a3c-36d2-43f5-a6c8-46b89c9775ce.png",
+  "Obsidian": "/lovable-uploads/f8e42c18-4a5d-44a1-89bb-017d93a845d0.png",
+  "Ancient Debris": "/lovable-uploads/59bf24a7-8b32-4615-bb79-48e1427f928e.png",
+  "End Portal Frame": "/lovable-uploads/5f380a30-bc96-4223-a9bb-9fc744036d09.png",
+  "Elytra": "/lovable-uploads/42f68d43-0471-44a4-a49f-19b186484ba1.png"
 };
 
 const planCategories = [
