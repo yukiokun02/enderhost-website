@@ -18,7 +18,7 @@ const Index = () => {
           backgroundImage: `linear-gradient(#8E9196 0.5px, transparent 0.5px), linear-gradient(to right, #8E9196 0.5px, transparent 0.5px)`,
           backgroundSize: '40px 40px',
           backgroundPosition: 'center center',
-          zIndex: 0
+          zIndex: -1
         }}
       />
       

@@ -83,4 +83,13 @@
   .neon-text {
     text-shadow: 0 0 5px rgba(94, 66, 227, 0.8), 0 0 10px rgba(94, 66, 227, 0.4);
   }
+  
+  .grid-background {
+    background-image: linear-gradient(#8E9196 0.5px, transparent 0.5px), linear-gradient(to right, #8E9196 0.5px, transparent 0.5px);
+    background-size: 40px 40px;
+    background-position: center center;
+    opacity: 0.1;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+  }
 }
