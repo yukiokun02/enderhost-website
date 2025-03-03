@@ -25,9 +25,9 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Client Area */}
+          {/* Quick Navigate */}
           <div className="mb-6 md:mb-0">
-            <h3 className="text-xl font-semibold text-white mb-6">Client Area</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">Quick Navigate</h3>
             <ul className="space-y-4">
               <li>
                 <a href="https://discord.gg/bsGPB9VpUY" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base" target="_blank" rel="noopener noreferrer">
@@ -48,7 +48,7 @@ export default function Footer() {
               <li>
                 <a href="#" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base">
                   <CreditCard className="w-5 h-5" />
-                  Billing Area
+                  Client Area
                 </a>
               </li>
             </ul>
