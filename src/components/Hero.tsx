@@ -1,6 +1,27 @@
 
 import { Button } from "@/components/ui/button";
 import { Server, Zap, Clock, Zap as ZapIcon, Globe } from "lucide-react";
+import { useEffect } from "react";
+
+// Add CSS for the Discord animation in the component
+const discordAnimationStyles = `
+@keyframes discordAnimation {
+  0% { background-position: 0px 0px; }
+  25% { background-position: -20px 0px; }
+  50% { background-position: -40px 0px; }
+  75% { background-position: -60px 0px; }
+  100% { background-position: -80px 0px; }
+}
+
+.animated-discord {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('/lovable-uploads/45df2984-1b34-4b54-9443-638b349c655b.png') no-repeat;
+  background-size: 500% 100%;
+  animation: discordAnimation 1.5s steps(4) infinite;
+}
+`;
 
 export default function Hero() {
   const scrollToPricing = () => {
@@ -9,6 +30,17 @@ export default function Hero() {
       pricingSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Add the CSS to the document head
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = discordAnimationStyles;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
@@ -69,11 +101,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8 px-8 py-7 text-lg rounded-lg border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-minecraft-secondary/70 hover:scale-105 shadow-lg flex items-center gap-3 font-semibold min-w-[220px]"
             >
-              <img 
-                src="/lovable-uploads/45df2984-1b34-4b54-9443-638b349c655b.png" 
-                alt="Discord" 
-                className="w-5 h-5" 
-              />
+              <span className="animated-discord"></span>
               Support
             </a>
           </div>
