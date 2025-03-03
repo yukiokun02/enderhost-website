@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Server, Zap, Clock, Zap as ZapIcon, Globe } from "lucide-react";
+import { useState } from "react";
 
 export default function Hero() {
   const scrollToPricing = () => {
@@ -34,6 +35,47 @@ export default function Hero() {
         }}
       />
       
+      {/* Discord button animation styles */}
+      <style jsx>{`
+        @keyframes discordIconAnimation {
+          0% { background-position: 0px 0; }
+          5% { background-position: -20px 0; }
+          10% { background-position: -40px 0; }
+          15% { background-position: -60px 0; }
+          20% { background-position: -80px 0; }
+          25% { background-position: -100px 0; }
+          30% { background-position: -120px 0; }
+          35% { background-position: -140px 0; }
+          40% { background-position: -160px 0; }
+          45% { background-position: -180px 0; }
+          50% { background-position: -200px 0; }
+          55% { background-position: -220px 0; }
+          60% { background-position: -240px 0; }
+          65% { background-position: -260px 0; }
+          70% { background-position: -280px 0; }
+          75% { background-position: -300px 0; }
+          80% { background-position: -320px 0; }
+          85% { background-position: -340px 0; }
+          90% { background-position: -360px 0; }
+          95% { background-position: -380px 0; }
+          100% { background-position: -400px 0; }
+        }
+        
+        .discord-icon {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background-image: url('/lovable-uploads/6d5fec27-3230-46cc-aeea-e9d4c2d40896.png');
+          background-repeat: no-repeat;
+          background-position: 0 0;
+          background-size: 420px 20px;
+        }
+        
+        .discord-button:hover .discord-icon {
+          animation: discordIconAnimation 1.5s steps(20) infinite;
+        }
+      `}</style>
+      
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center px-4 py-2 mb-8 bg-black/70 rounded-full animate-fade-up backdrop-blur-md border border-minecraft-secondary/50 shadow-lg">
@@ -64,16 +106,12 @@ export default function Hero() {
             </Button>
             
             <a 
-              href="https://discord.gg/bsGPB9VpUY"
+              href="https://billing.enderhost.in/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8 px-8 py-7 text-lg rounded-lg border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-minecraft-secondary/70 hover:scale-105 shadow-lg flex items-center gap-3 font-semibold min-w-[220px]"
+              className="discord-button inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8 px-8 py-7 text-lg rounded-lg border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-minecraft-secondary/70 hover:scale-105 shadow-lg flex items-center gap-3 font-semibold min-w-[220px]"
             >
-              <img 
-                src="/lovable-uploads/45df2984-1b34-4b54-9443-638b349c655b.png" 
-                alt="Discord" 
-                className="w-5 h-5" 
-              />
+              <span className="discord-icon"></span>
               Support
             </a>
           </div>
