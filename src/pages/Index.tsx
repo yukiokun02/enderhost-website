@@ -10,10 +10,10 @@ import UptimeStats from "@/components/UptimeStats";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden pt-16 relative">
+    <div className="min-h-screen bg-black overflow-hidden pt-16 relative">
       {/* Global Grid Pattern */}
       <div 
-        className="fixed inset-0 opacity-10 mix-blend-soft-light pointer-events-none"
+        className="fixed inset-0 opacity-10 mix-blend-soft-light pointer-events-none z-0"
         style={{ 
           backgroundImage: `linear-gradient(#8E9196 0.5px, transparent 0.5px), linear-gradient(to right, #8E9196 0.5px, transparent 0.5px)`,
           backgroundSize: '40px 40px',
