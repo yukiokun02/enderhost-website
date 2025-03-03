@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, Cpu, Cloud, HardDrive, Gauge, Signal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const allPlans = [
@@ -183,6 +183,16 @@ export default function Pricing() {
   const [showAllPlans, setShowAllPlans] = useState(false);
   const displayedPlans = showAllPlans ? allPlans : allPlans.slice(0, 6);
 
+  // Function to get the appropriate icon for each feature
+  const getFeatureIcon = (feature: string) => {
+    if (feature.includes("RAM")) return <Gauge className="w-5 h-5 flex-shrink-0" />;
+    if (feature.includes("CPU")) return <Cpu className="w-5 h-5 flex-shrink-0" />;
+    if (feature.includes("SSD")) return <HardDrive className="w-5 h-5 flex-shrink-0" />;
+    if (feature.includes("Bandwidth")) return <Signal className="w-5 h-5 flex-shrink-0" />;
+    if (feature.includes("Backup")) return <Cloud className="w-5 h-5 flex-shrink-0" />;
+    return <Check className="w-5 h-5 flex-shrink-0" />;
+  };
+
   return (
     <section className="py-24 bg-gradient-to-b from-minecraft-dark to-black" id="pricing">
       <div className="container mx-auto px-4">
@@ -230,7 +240,7 @@ export default function Pricing() {
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
-                    <Check className={`w-5 h-5 ${plan.gradient ? 'text-white' : 'text-minecraft-secondary'} flex-shrink-0`} />
+                    {getFeatureIcon(feature)}
                     <span className={`${plan.gradient ? 'text-white/80' : 'text-gray-400'}`}>{feature}</span>
                   </li>
                 ))}
