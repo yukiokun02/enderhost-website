@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PromoOffer from "@/components/PromoOffer";
 import UptimeStats from "@/components/UptimeStats";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 const Index = () => {
   return (
@@ -21,11 +22,27 @@ const Index = () => {
       
       <Navigation />
       <Hero />
-      <PromoOffer />
-      <Pricing />
-      <UptimeStats />
-      <Features />
-      <ServerTypes />
+      
+      <AnimateOnScroll variant="fade-up">
+        <PromoOffer />
+      </AnimateOnScroll>
+      
+      <AnimateOnScroll variant="fade-up" delay={0.1}>
+        <Pricing />
+      </AnimateOnScroll>
+      
+      <AnimateOnScroll variant="fade-up" delay={0.2}>
+        <UptimeStats />
+      </AnimateOnScroll>
+      
+      <AnimateOnScroll variant="fade-up" delay={0.3}>
+        <Features />
+      </AnimateOnScroll>
+      
+      <AnimateOnScroll variant="fade-up" delay={0.4}>
+        <ServerTypes />
+      </AnimateOnScroll>
+      
       <Footer />
     </div>
   );
