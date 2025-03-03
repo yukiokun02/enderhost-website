@@ -29,7 +29,7 @@ const allPlans = [
       "1Gbps Bandwidth",
       "Basic DDoS Protection",
     ],
-    popular: false,
+    popular: true,
     gradient: true,
     gradientClass: "from-minecraft-primary/60 to-minecraft-accent/60",
     stock: null,
@@ -87,7 +87,7 @@ const allPlans = [
       "1Gbps Bandwidth",
       "Advanced DDoS Protection",
     ],
-    popular: false,
+    popular: true,
     gradient: true,
     gradientClass: "from-minecraft-primary/60 to-minecraft-secondary/60",
     stock: null,
@@ -158,7 +158,7 @@ const allPlans = [
       "Unmetered Bandwidth",
       "Advanced DDoS Protection",
     ],
-    popular: false,
+    popular: true,
     gradient: true,
     gradientClass: "from-[#5E42E3]/60 to-[#2E3BCC]/60",
     stock: null,
@@ -212,7 +212,7 @@ export default function Pricing() {
                 boxShadow: plan.gradient ? '0 0 15px rgba(94, 66, 227, 0.2)' : 'none'
               }}
             >
-              {plan.popular && (
+              {plan.gradient && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <div className="bg-gradient-to-r from-minecraft-primary to-minecraft-secondary text-white text-sm font-medium px-4 py-1 rounded-full">
                     Most Popular
