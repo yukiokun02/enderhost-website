@@ -19,10 +19,10 @@ export default function RefundPolicy() {
         }}
       />
       
-      {/* Back button */}
+      {/* Back button - repositioned for mobile */}
       <button 
         onClick={() => navigate("/")}
-        className="absolute top-8 left-8 p-2 text-gray-400 hover:text-white transition-colors flex items-center gap-2 z-10"
+        className="absolute md:top-8 md:left-8 top-20 left-4 p-2 text-gray-400 hover:text-white transition-colors flex items-center gap-2 z-10"
       >
         <ArrowLeft size={20} />
         <span>Back to Home</span>
