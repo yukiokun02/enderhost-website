@@ -32,7 +32,7 @@ const allPlans = [
     popular: false,
     gradient: true,
     gradientClass: "from-minecraft-primary/60 to-minecraft-accent/60",
-    stock: 7,
+    stock: null,
   },
   {
     name: "Stone Age",
@@ -61,7 +61,7 @@ const allPlans = [
     popular: true,
     gradient: true,
     gradientClass: "from-minecraft-secondary/60 to-minecraft-primary/60",
-    stock: 5,
+    stock: null,
   },
   {
     name: "Isn't It Iron Pick?",
@@ -90,7 +90,7 @@ const allPlans = [
     popular: false,
     gradient: true,
     gradientClass: "from-minecraft-primary/60 to-minecraft-secondary/60",
-    stock: 3,
+    stock: null,
   },
   {
     name: "Ice Bucket Challenge",
@@ -161,7 +161,7 @@ const allPlans = [
     popular: false,
     gradient: true,
     gradientClass: "from-[#5E42E3]/60 to-[#2E3BCC]/60",
-    stock: 2,
+    stock: null,
   },
   {
     name: "Sky is the Limit",
@@ -216,14 +216,6 @@ export default function Pricing() {
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <div className="bg-gradient-to-r from-minecraft-primary to-minecraft-secondary text-white text-sm font-medium px-4 py-1 rounded-full">
                     Most Popular
-                  </div>
-                </div>
-              )}
-              
-              {plan.stock && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="bg-yellow-600/80 text-white text-sm font-medium px-4 py-1 rounded-full">
-                    Only {plan.stock} left in stock!
                   </div>
                 </div>
               )}
