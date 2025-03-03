@@ -1,9 +1,21 @@
-
 import { useState } from "react";
 import { Check, ChevronDown, ChevronUp, Cpu, Cloud, HardDrive, Gauge, Signal, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Group plans into categories
+const minecraftItems = {
+  "Oak Log": "/lovable-uploads/e1341b42-612c-4eb3-b5f9-d6ac7e41acf3.png",
+  "Stone Pickaxe": "/lovable-uploads/32ae7d2d-65eb-4b47-9c06-c61d76c82313.png", 
+  "Cobblestone": "/lovable-uploads/b37194dc-12f5-4b46-980a-e6cd44332d52.png",
+  "Iron Pickaxe": "/lovable-uploads/d0061f99-fbb0-48a4-917d-ea5a0d94dbda.png",
+  "Iron Ore": "/lovable-uploads/517a0d2d-57cc-4b7f-9f07-f73b8e24d7f7.png",
+  "Diamond": "/lovable-uploads/49ac0a25-d9a1-4f05-9c08-124068bf78f5.png",
+  "Ice Block": "/lovable-uploads/b5a2e2ef-52e6-4868-9001-4aa6232b1f09.png",
+  "Obsidian": "/lovable-uploads/9de719a9-cca7-4faa-bc79-f87f3245bd99.png",
+  "Ancient Debris": "/lovable-uploads/45df2984-1b34-4b54-9443-638b349c655b.png",
+  "End Portal Frame": "/lovable-uploads/45e4aa45-228f-48e6-b19e-e0369749999e.png",
+  "Elytra": "/lovable-uploads/dd9e7569-2fd6-4024-98ce-f6e15de312a5.png"
+};
+
 const planCategories = [
   {
     id: "vanilla",
@@ -215,7 +227,6 @@ const planCategories = [
 ];
 
 export default function Pricing() {
-  // Function to get the appropriate icon for each feature
   const getFeatureIcon = (feature: string) => {
     if (feature.includes("RAM")) return <Gauge className="w-5 h-5 flex-shrink-0" />;
     if (feature.includes("CPU")) return <Cpu className="w-5 h-5 flex-shrink-0" />;
@@ -240,7 +251,6 @@ export default function Pricing() {
         <div className="max-w-6xl mx-auto space-y-24">
           {planCategories.map((category) => (
             <div key={category.id} className={`rounded-3xl overflow-hidden relative`}>
-              {/* Category Header */}
               <div className={`p-8 ${category.color} bg-opacity-20`} 
                    style={{backgroundImage: `linear-gradient(to right, ${category.gradient})`}}>
                 <h3 className="flex items-center gap-2">
@@ -249,7 +259,6 @@ export default function Pricing() {
                 <p className="text-white/80 mt-2">{category.description}</p>
               </div>
               
-              {/* Plans Grid */}
               <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${Math.min(category.plans.length, 4)} gap-4 p-4 bg-black/50 backdrop-blur-sm`}>
                 {category.plans.map((plan) => (
                   <div 
@@ -275,7 +284,16 @@ export default function Pricing() {
                     )}
                     
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-white font-minecraft text-lg">{plan.icon}</span>
+                      <div className="w-10 h-10 flex items-center justify-center">
+                        {minecraftItems[plan.icon] && (
+                          <img 
+                            src={minecraftItems[plan.icon]} 
+                            alt={plan.icon} 
+                            className="w-full h-full object-contain"
+                            title={plan.icon}
+                          />
+                        )}
+                      </div>
                       <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10">
                         <Users className="w-3.5 h-3.5" />
                         <span className="text-sm text-white/80">{plan.players}</span>
@@ -319,7 +337,6 @@ export default function Pricing() {
                 ))}
               </div>
               
-              {/* Features included with all plans in this category */}
               <div className="px-8 py-4 bg-black/70 border-t border-white/10">
                 <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
                   <div className="text-white/90 font-medium">INCLUDED ON ALL SERVERS:</div>
