@@ -8,8 +8,20 @@ import Footer from "@/components/Footer";
 import PromoOffer from "@/components/PromoOffer";
 import UptimeStats from "@/components/UptimeStats";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import { useEffect } from "react";
 
 const Index = () => {
+  // Apply smooth scrolling behavior to the html element
+  useEffect(() => {
+    // Ensure smooth scrolling is applied
+    document.documentElement.style.scrollBehavior = "smooth";
+    
+    return () => {
+      // Clean up when component unmounts
+      document.documentElement.style.scrollBehavior = "";
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-black overflow-hidden pt-16 relative">
       {/* Global Grid Pattern */}
