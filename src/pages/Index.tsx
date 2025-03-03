@@ -6,6 +6,7 @@ import ServerTypes from "@/components/ServerTypes";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PromoOffer from "@/components/PromoOffer";
+import UptimeStats from "@/components/UptimeStats";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <Hero />
       <PromoOffer />
       <Pricing />
+      <UptimeStats />
       <Features />
       <ServerTypes />
       <Footer />
