@@ -43,9 +43,9 @@ export default function Hero() {
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-white animate-fade-up [animation-delay:200ms] tracking-tight leading-tight md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-white animate-fade-up [animation-delay:200ms] tracking-tight leading-tight md:drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">
             Next-Level Minecraft Hosting<br />
-            <span className="bg-gradient-to-r from-minecraft-light to-minecraft-secondary bg-clip-text text-transparent md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">Fast, Reliable, Unstoppable</span>
+            <span className="bg-gradient-to-r from-minecraft-light to-minecraft-secondary bg-clip-text text-transparent md:drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">Fast, Reliable, Unstoppable</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto animate-fade-up [animation-delay:400ms] md:drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] font-medium">
