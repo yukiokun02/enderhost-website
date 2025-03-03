@@ -1,8 +1,7 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { 
   LogIn, 
   UserPlus, 
@@ -17,8 +16,6 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-// Mocked authentication for demo purposes
-// In a real app, you would connect this to a proper auth provider
 const mockedAuth = {
   signInWithEmail: (email: string, password: string) => 
     new Promise<void>((resolve) => setTimeout(resolve, 1500)),
@@ -31,13 +28,11 @@ export default function Auth() {
   const [activeTab, setActiveTab] = useState<"signin" | "signup">("signin");
   const navigate = useNavigate();
   
-  // Sign in form state
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [showSignInPassword, setShowSignInPassword] = useState(false);
   
-  // Sign up form state
   const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [signUpEmail, setSignUpEmail] = useState("");
@@ -59,13 +54,10 @@ export default function Auth() {
     try {
       await mockedAuth.signInWithEmail(signInEmail, signInPassword);
       
-      // Set auth state in localStorage (for demo purposes)
       localStorage.setItem("isAuthenticated", "true");
       
-      // Show success toast
       toast.success("Successfully signed in");
       
-      // Navigate back to home page
       navigate("/");
     } catch (error) {
       toast.error("Authentication failed. Please try again.");
@@ -96,13 +88,10 @@ export default function Auth() {
     try {
       await mockedAuth.signUpWithEmail(fullName, username, signUpEmail, signUpPassword);
       
-      // Set auth state in localStorage (for demo purposes)
       localStorage.setItem("isAuthenticated", "true");
       
-      // Show success toast
       toast.success("Account created successfully");
       
-      // Navigate back to home page
       navigate("/");
     } catch (error) {
       toast.error("Registration failed. Please try again.");
@@ -113,7 +102,6 @@ export default function Auth() {
 
   return (
     <div className="min-h-screen bg-black flex flex-col items-center justify-center p-4 relative">
-      {/* Global Grid Pattern */}
       <div 
         className="fixed inset-0 opacity-10 mix-blend-soft-light pointer-events-none"
         style={{ 
@@ -123,7 +111,6 @@ export default function Auth() {
         }}
       />
       
-      {/* Back button */}
       <button 
         onClick={() => navigate("/")}
         className="absolute top-8 left-8 p-2 text-gray-400 hover:text-white transition-colors flex items-center gap-2"
@@ -133,7 +120,6 @@ export default function Auth() {
       </button>
       
       <div className="w-full max-w-md">
-        {/* Logo */}
         <div className="flex justify-center mb-8">
           <a href="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
             <img 
@@ -148,9 +134,7 @@ export default function Auth() {
           </a>
         </div>
         
-        {/* Auth card */}
         <div className="bg-black/30 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-[0_8px_30px_rgb(94,66,227,0.1)]">
-          {/* Tabs */}
           <div className="flex mb-8 border-b border-white/10">
             <button
               onClick={() => setActiveTab("signin")}
@@ -177,7 +161,6 @@ export default function Auth() {
           </div>
           
           {activeTab === "signin" ? (
-            /* Sign In Form */
             <form onSubmit={handleSignIn}>
               <h1 className="text-2xl font-bold text-white mb-2">Welcome Back!</h1>
               <p className="text-gray-400 mb-6">Sign in to access your Minecraft servers</p>
@@ -264,7 +247,6 @@ export default function Auth() {
               </div>
             </form>
           ) : (
-            /* Sign Up Form */
             <form onSubmit={handleSignUp}>
               <h1 className="text-2xl font-bold text-white mb-2">Create Your Account</h1>
               <p className="text-gray-400 mb-6">Join us and start hosting your Minecraft servers</p>
@@ -361,13 +343,13 @@ export default function Auth() {
                   </div>
                   <label htmlFor="terms" className="ml-2 block text-sm text-gray-400">
                     I agree to the{" "}
-                    <a href="#" className="text-minecraft-secondary hover:underline">
+                    <Link to="/terms-of-service" className="text-minecraft-secondary hover:underline">
                       Terms & Conditions
-                    </a>{" "}
+                    </Link>{" "}
                     and{" "}
-                    <a href="#" className="text-minecraft-secondary hover:underline">
+                    <Link to="/privacy-policy" className="text-minecraft-secondary hover:underline">
                       Privacy Policy
-                    </a>
+                    </Link>
                   </label>
                 </div>
                 
