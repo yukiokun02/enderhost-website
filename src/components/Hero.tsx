@@ -35,46 +35,48 @@ export default function Hero() {
         }}
       />
       
-      {/* Discord button animation styles */}
-      <style jsx>{`
-        @keyframes discordIconAnimation {
-          0% { background-position: 0px 0; }
-          5% { background-position: -20px 0; }
-          10% { background-position: -40px 0; }
-          15% { background-position: -60px 0; }
-          20% { background-position: -80px 0; }
-          25% { background-position: -100px 0; }
-          30% { background-position: -120px 0; }
-          35% { background-position: -140px 0; }
-          40% { background-position: -160px 0; }
-          45% { background-position: -180px 0; }
-          50% { background-position: -200px 0; }
-          55% { background-position: -220px 0; }
-          60% { background-position: -240px 0; }
-          65% { background-position: -260px 0; }
-          70% { background-position: -280px 0; }
-          75% { background-position: -300px 0; }
-          80% { background-position: -320px 0; }
-          85% { background-position: -340px 0; }
-          90% { background-position: -360px 0; }
-          95% { background-position: -380px 0; }
-          100% { background-position: -400px 0; }
-        }
-        
-        .discord-icon {
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          background-image: url('/lovable-uploads/6d5fec27-3230-46cc-aeea-e9d4c2d40896.png');
-          background-repeat: no-repeat;
-          background-position: 0 0;
-          background-size: 420px 20px;
-        }
-        
-        .discord-button:hover .discord-icon {
-          animation: discordIconAnimation 1.5s steps(20) infinite;
-        }
-      `}</style>
+      {/* Discord button animation styles - fixed by using regular style tag */}
+      <style>
+        {`
+          @keyframes discordIconAnimation {
+            0% { background-position: 0px 0; }
+            5% { background-position: -20px 0; }
+            10% { background-position: -40px 0; }
+            15% { background-position: -60px 0; }
+            20% { background-position: -80px 0; }
+            25% { background-position: -100px 0; }
+            30% { background-position: -120px 0; }
+            35% { background-position: -140px 0; }
+            40% { background-position: -160px 0; }
+            45% { background-position: -180px 0; }
+            50% { background-position: -200px 0; }
+            55% { background-position: -220px 0; }
+            60% { background-position: -240px 0; }
+            65% { background-position: -260px 0; }
+            70% { background-position: -280px 0; }
+            75% { background-position: -300px 0; }
+            80% { background-position: -320px 0; }
+            85% { background-position: -340px 0; }
+            90% { background-position: -360px 0; }
+            95% { background-position: -380px 0; }
+            100% { background-position: -400px 0; }
+          }
+          
+          .discord-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('/lovable-uploads/6d5fec27-3230-46cc-aeea-e9d4c2d40896.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 420px 20px;
+          }
+          
+          .discord-button:hover .discord-icon {
+            animation: discordIconAnimation 1.5s steps(20) infinite;
+          }
+        `}
+      </style>
       
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
