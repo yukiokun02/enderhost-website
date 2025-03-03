@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Server, LogIn, Menu, X, IndianRupee, LogOut, ChevronDown, Settings, User } from "lucide-react";
@@ -120,9 +121,11 @@ export default function Navigation() {
                           Game Panel
                         </a>
                         <a
-                          href="/client-area"
+                          href="https://billing.enderhost.in/login"
                           className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
                           onClick={() => setDesktopMenuOpen(false)}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
                           <User className="w-4 h-4" />
                           Client Area
@@ -196,9 +199,11 @@ export default function Navigation() {
                 Game Panel
               </a>
               <a
-                href="/client-area"
+                href="https://billing.enderhost.in/login"
                 className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
                 onClick={() => setMobileMenuOpen(false)}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <User className="w-4 h-4" />
                 Client Area

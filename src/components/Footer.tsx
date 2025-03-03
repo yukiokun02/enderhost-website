@@ -46,7 +46,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base">
+                <a href="https://billing.enderhost.in/login" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base" target="_blank" rel="noopener noreferrer">
                   <CreditCard className="w-5 h-5" />
                   Client Area
                 </a>
