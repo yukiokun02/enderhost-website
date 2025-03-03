@@ -239,7 +239,17 @@ export default function Pricing() {
 
   return (
     <section className="py-24 bg-gradient-to-b from-minecraft-dark to-black relative z-10" id="pricing">
-      <div className="container mx-auto px-4">
+      {/* Add the grid background */}
+      <div 
+        className="absolute inset-0 grid-background"
+        style={{ 
+          zIndex: 0,
+          opacity: 0.06,  // Slightly more visible than the global grid
+          backgroundSize: "35px 35px" // Slightly smaller grid size for the pricing section
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Choose Your Perfect Minecraft Server
