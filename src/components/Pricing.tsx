@@ -321,17 +321,17 @@ export default function Pricing() {
                       <a href={plan.orderLink} target="_blank" rel="noopener noreferrer" className="block">
                         <Button
                           className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
-                            ${category.buttonColor} text-white`}
+                            ${category.buttonColor} text-white hover:scale-105`}
                         >
-                          Add To Cart
+                          Buy Now
                         </Button>
                       </a>
                     ) : (
                       <Button
                         className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
-                          ${category.buttonColor} text-white`}
+                          ${category.buttonColor} text-white hover:scale-105`}
                       >
-                        Add To Cart
+                        Buy Now
                       </Button>
                     )}
                   </div>
