@@ -327,7 +327,7 @@ export default function Pricing() {
                       ))}
                     </ul>
                     
-                    {plan.name === "Getting Woods" ? (
+                    {plan.orderLink ? (
                       <a href={plan.orderLink} target="_blank" rel="noopener noreferrer" className="block">
                         <Button
                           className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
