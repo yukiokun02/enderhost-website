@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Check, ChevronDown, ChevronUp, Cpu, Cloud, HardDrive, Gauge, Signal, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -40,7 +39,7 @@ const planCategories = [
         icon: "Oak Log",
         players: "3+ Players",
         popular: false,
-        orderLink: "https://billing.enderhost.in/order/getting-woods"
+        orderLink: "https://billing.enderhost.in/index.php?rp=/store/the-vanilla/getting-woods"
       },
       {
         name: "Getting an Upgrade",
@@ -239,13 +238,12 @@ export default function Pricing() {
 
   return (
     <section className="py-24 bg-gradient-to-b from-minecraft-dark to-black relative z-10" id="pricing">
-      {/* Add the grid background */}
       <div 
         className="absolute inset-0 grid-background"
         style={{ 
           zIndex: 0,
-          opacity: 0.06,  // Slightly more visible than the global grid
-          backgroundSize: "35px 35px" // Slightly smaller grid size for the pricing section
+          opacity: 0.06,
+          backgroundSize: "35px 35px"
         }}
       />
       
