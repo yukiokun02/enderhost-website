@@ -9,13 +9,7 @@ const serverTypes = [
     color: "from-green-500 to-green-700",
     url: "https://www.minecraft.net/en-us/download/server"
   },
-  {
-    name: "Bukkit",
-    description: "Plugin support for servers",
-    imageSrc: "/lovable-uploads/517a0d2d-57cc-4b7f-9f07-f73b8e24d7f7.png",
-    color: "from-blue-500 to-blue-700",
-    url: "https://dev.bukkit.org/"
-  },
+  // Bukkit removed
   {
     name: "Spigot",
     description: "Optimized Bukkit fork",
@@ -43,6 +37,13 @@ const serverTypes = [
     imageSrc: "/lovable-uploads/c518c79f-b1b5-4b6a-8b36-6f1eb687bf7b.png",
     color: "from-orange-500 to-orange-700",
     url: "https://files.minecraftforge.net/"
+  },
+  {
+    name: "NeoForge",
+    description: "Modern Forge continuation",
+    imageSrc: "/lovable-uploads/aa9f85f2-daf8-485d-a9f4-7e47a71d257e.png",
+    color: "from-amber-500 to-amber-700",
+    url: "https://neoforged.net/"
   },
   {
     name: "Fabric",
