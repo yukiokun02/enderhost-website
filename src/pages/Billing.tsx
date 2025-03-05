@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -41,7 +42,8 @@ const billingFormSchema = z.object({
   city: z.string().min(1, "Please enter your city"),
   address: z.string().min(3, "Please enter your address"),
   zipCode: z.string().min(3, "Please enter a valid zip/postal code"),
-  paymentMethod: z.string().min(1, "Please select a payment method"),
+  // Making payment method optional for testing
+  paymentMethod: z.string().optional(),
 });
 
 type BillingFormValues = z.infer<typeof billingFormSchema>;
@@ -64,7 +66,7 @@ export default function Billing() {
       city: "",
       address: "",
       zipCode: "",
-      paymentMethod: "",
+      paymentMethod: "none", // Set default to "none" for testing
     },
   });
 
@@ -95,7 +97,7 @@ export default function Billing() {
 
     setIsLoading(true);
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Skip payment processing for testing
       
       await createMinecraftServer({
         name: data.serverName,
@@ -259,6 +261,7 @@ export default function Billing() {
                             <FormLabel>Email Address</FormLabel>
                             <FormControl>
                               <Input 
+                                type="email"
                                 placeholder="your@email.com" 
                                 {...field} 
                                 disabled={isAuthenticated}
@@ -400,36 +403,6 @@ export default function Billing() {
                       />
                     </div>
                     
-                    <div className="space-y-4 pt-4 border-t border-white/10">
-                      <h3 className="text-lg font-medium">Payment Method</h3>
-                      
-                      <FormField
-                        control={form.control}
-                        name="paymentMethod"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Select Payment Method</FormLabel>
-                            <Select 
-                              onValueChange={field.onChange} 
-                              defaultValue={field.value}
-                            >
-                              <FormControl>
-                                <SelectTrigger className="bg-white/5 border-white/10 text-white">
-                                  <SelectValue placeholder="Select payment method" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent className="bg-gray-900 border-white/10 text-white">
-                                <SelectItem value="card">Credit/Debit Card</SelectItem>
-                                <SelectItem value="paypal">PayPal</SelectItem>
-                                <SelectItem value="upi">UPI (India)</SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    
                     <Button 
                       type="submit" 
                       className="w-full bg-minecraft-secondary hover:bg-minecraft-dark text-white"
@@ -452,7 +425,7 @@ export default function Billing() {
               </CardContent>
               <CardFooter className="flex justify-center pt-0">
                 <p className="text-sm text-gray-400">
-                  Your payment information is securely processed
+                  Your server will be created instantly after checkout
                 </p>
               </CardFooter>
             </Card>

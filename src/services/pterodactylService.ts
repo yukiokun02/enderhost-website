@@ -18,8 +18,9 @@ export interface ServerDetails {
 
 export const createMinecraftServer = async (serverDetails: ServerDetails, userEmail: string) => {
   try {
+    console.log("Creating server with details:", { serverDetails, userEmail });
+    
     // In a real implementation, you would make an API call to Pterodactyl here
-    // This is a simplified mock to show the structure
     const response = await fetch(`${API_URL}/application/servers`, {
       method: 'POST',
       headers: {
@@ -58,13 +59,16 @@ export const createMinecraftServer = async (serverDetails: ServerDetails, userEm
 
     if (!response.ok) {
       const errorData = await response.json();
+      console.error("Server creation error:", errorData);
       throw new Error(errorData.message || 'Failed to create server');
     }
 
-    return await response.json();
+    const data = await response.json();
+    console.log("Server created successfully:", data);
+    return data;
   } catch (error) {
-    toast.error('Failed to create Minecraft server');
     console.error('Error creating Minecraft server:', error);
+    toast.error('Failed to create Minecraft server');
     throw error;
   }
 };
