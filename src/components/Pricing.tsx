@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Check, ChevronDown, ChevronUp, Cpu, Cloud, HardDrive, Gauge, Signal, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Check, Cpu, Cloud, HardDrive, Gauge, Signal, Users } from "lucide-react";
+import BuyNowButton from "@/components/BuyNowButton";
 
 const minecraftItems = {
   "Oak Log": "/lovable-uploads/9b5fa930-abf6-434b-b424-efa2c7da4843.png",
@@ -325,23 +325,11 @@ export default function Pricing() {
                       ))}
                     </ul>
                     
-                    {plan.orderLink ? (
-                      <a href={plan.orderLink} target="_blank" rel="noopener noreferrer" className="block">
-                        <Button
-                          className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
-                            ${category.buttonColor} text-white hover:scale-105`}
-                        >
-                          Buy Now
-                        </Button>
-                      </a>
-                    ) : (
-                      <Button
-                        className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
-                          ${category.buttonColor} text-white hover:scale-105`}
-                      >
-                        Buy Now
-                      </Button>
-                    )}
+                    <BuyNowButton
+                      orderLink={plan.orderLink || `${category.id}/${plan.name.replace(/\s+/g, '-').toLowerCase()}`}
+                      className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
+                        ${category.buttonColor} text-white hover:scale-105`}
+                    />
                   </div>
                 ))}
               </div>

@@ -1,13 +1,13 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import { 
   LogIn, 
   UserPlus, 
   Loader2, 
   Mail, 
-  X, 
   Eye, 
   EyeOff, 
   User, 
@@ -15,24 +15,24 @@ import {
   ChevronLeft 
 } from "lucide-react";
 import { toast } from "sonner";
-
-const mockedAuth = {
-  signInWithEmail: (email: string, password: string) => 
-    new Promise<void>((resolve) => setTimeout(resolve, 1500)),
-  signUpWithEmail: (fullName: string, username: string, email: string, password: string) => 
-    new Promise<void>((resolve) => setTimeout(resolve, 1500)),
-};
+import { useAuth } from "@/context/AuthContext";
+import { createOrUpdateClient } from "@/services/whmcsService";
 
 export default function Auth() {
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<"signin" | "signup">("signin");
   const navigate = useNavigate();
+  const { login } = useAuth();
+  const [searchParams] = useSearchParams();
+  const redirectPath = searchParams.get('redirect') || '/';
   
+  // Sign In form state
   const [signInEmail, setSignInEmail] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [showSignInPassword, setShowSignInPassword] = useState(false);
   
+  // Sign Up form state
   const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [signUpEmail, setSignUpEmail] = useState("");
@@ -52,13 +52,17 @@ export default function Auth() {
     
     setIsLoading(true);
     try {
-      await mockedAuth.signInWithEmail(signInEmail, signInPassword);
+      // This is a mock authentication for demonstration
+      // In a real app, you would validate with your backend
+      await new Promise<void>((resolve) => setTimeout(resolve, 1500));
       
-      localStorage.setItem("isAuthenticated", "true");
+      // Store authentication in context and localStorage
+      login(signInEmail, signInEmail.split('@')[0]);
       
       toast.success("Successfully signed in");
       
-      navigate("/");
+      // Redirect to the original page or home
+      navigate(redirectPath);
     } catch (error) {
       toast.error("Authentication failed. Please try again.");
     } finally {
@@ -86,13 +90,16 @@ export default function Auth() {
     
     setIsLoading(true);
     try {
-      await mockedAuth.signUpWithEmail(fullName, username, signUpEmail, signUpPassword);
+      // Create or update user in WHMCS
+      await createOrUpdateClient(signUpEmail, fullName, signUpPassword);
       
-      localStorage.setItem("isAuthenticated", "true");
+      // Store authentication in context and localStorage
+      login(signUpEmail, fullName);
       
       toast.success("Account created successfully");
       
-      navigate("/");
+      // Redirect to the original page or home
+      navigate(redirectPath);
     } catch (error) {
       toast.error("Registration failed. Please try again.");
     } finally {
