@@ -31,6 +31,7 @@ export default function Navigation() {
               <span className="font-bold text-lg">
                 <span className="text-white">Ender</span>
                 <span className="text-minecraft-secondary">HOST</span>
+                <sup className="text-xs">®</sup>
               </span>
             </a>
 

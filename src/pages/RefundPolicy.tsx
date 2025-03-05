@@ -38,7 +38,7 @@ export default function RefundPolicy() {
             {/* Introduction */}
             <div>
               <p className="mb-6 text-lg">
-                At EnderHOST, we aim to provide the highest quality Minecraft hosting services. We understand that sometimes 
+                At EnderHOST<sup className="text-xs">®</sup>, we aim to provide the highest quality Minecraft hosting services. We understand that sometimes 
                 circumstances change, and you may need to request a refund. This policy outlines our guidelines for refunds and 
                 cancellations to ensure transparency and fair treatment for all customers.
               </p>
@@ -100,7 +100,7 @@ export default function RefundPolicy() {
                 <li>Customers experiencing financial hardship may contact our customer service team to discuss potential options for service downgrades, payment plans, or special arrangements.</li>
                 <li>For customers affected by natural disasters or other catastrophic events, we may extend special considerations regarding service continuity, payment deadlines, or cancellation terms. Contact our support team to discuss your situation.</li>
                 <li>Bulk service purchases or enterprise customers may have custom refund and cancellation terms as specified in their service agreements, which take precedence over this general policy.</li>
-                <li>EnderHOST reserves the right to make exceptions to this policy on a case-by-case basis at its sole discretion. Any exceptions made will not constitute a waiver of our right to enforce these policies in the future.</li>
+                <li>EnderHOST<sup className="text-xs">®</sup> reserves the right to make exceptions to this policy on a case-by-case basis at its sole discretion. Any exceptions made will not constitute a waiver of our right to enforce these policies in the future.</li>
               </ul>
             </div>
             
