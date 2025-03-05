@@ -12,7 +12,6 @@ import TermsOfService from "@/pages/TermsOfService";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import RefundPolicy from "@/pages/RefundPolicy";
 import PageTransition from "./components/PageTransition";
-import { AuthProvider } from "./context/AuthContext";
 
 const queryClient = new QueryClient();
 
@@ -78,15 +77,13 @@ const AnimatedRoutes = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AnimatedRoutes />
-        </BrowserRouter>
-      </TooltipProvider>
-    </AuthProvider>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AnimatedRoutes />
+      </BrowserRouter>
+    </TooltipProvider>
   </QueryClientProvider>
 );
 
