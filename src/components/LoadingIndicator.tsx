@@ -18,7 +18,7 @@ export default function LoadingIndicator() {
             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
           />
         </div>
-        <p className="mt-4 text-white font-bold text-lg neon-text">Loading...</p>
+        <p className="mt-4 text-white font-bold text-lg">Loading...</p>
       </motion.div>
     </div>
   );
