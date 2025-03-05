@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -30,10 +29,9 @@ import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Loader2, CreditCard, Check, Cpu, HardDrive, Memory, Server, CloudLightning } from "lucide-react";
+import { Loader2, CreditCard, Check, Cpu, HardDrive, MemoryStick, Server, CloudLightning } from "lucide-react";
 import { createMinecraftServer } from "@/services/pterodactylService";
 
-// Form schema for validation
 const billingFormSchema = z.object({
   serverName: z.string().min(3, "Server name must be at least 3 characters"),
   email: z.string().email("Please enter a valid email"),
@@ -55,7 +53,6 @@ export default function Billing() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
 
-  // Form definition with default values
   const form = useForm<BillingFormValues>({
     resolver: zodResolver(billingFormSchema),
     defaultValues: {
@@ -71,18 +68,15 @@ export default function Billing() {
     },
   });
 
-  // Effect to handle plan data from navigation state
   useEffect(() => {
     if (location.state?.plan) {
       setSelectedPlan(location.state.plan);
     } else {
-      // If no plan was selected, redirect back to pricing
       toast.error("Please select a plan first");
       navigate("/");
     }
   }, [location.state, navigate]);
 
-  // Effect to check authentication status and pre-fill form
   useEffect(() => {
     const authStatus = localStorage.getItem("isAuthenticated");
     const userEmail = localStorage.getItem("userEmail");
@@ -90,12 +84,9 @@ export default function Billing() {
     if (authStatus === "true" && userEmail) {
       setIsAuthenticated(true);
       form.setValue("email", userEmail);
-      // In a real implementation, you would have the user's details stored
-      // and could pre-fill more fields
     }
   }, [form]);
 
-  // Handle form submission
   const onSubmit = async (data: BillingFormValues) => {
     if (!selectedPlan) {
       toast.error("Please select a plan first");
@@ -104,16 +95,13 @@ export default function Billing() {
 
     setIsLoading(true);
     try {
-      // Simulate payment processing
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Create the server in Pterodactyl
       await createMinecraftServer({
         name: data.serverName,
         plan: selectedPlan,
       }, data.email);
       
-      // If the user wasn't already authenticated, save their email
       if (!isAuthenticated) {
         localStorage.setItem("isAuthenticated", "true");
         localStorage.setItem("userEmail", data.email);
@@ -121,7 +109,6 @@ export default function Billing() {
       
       toast.success("Your Minecraft server has been created successfully!");
       
-      // Redirect to a success page (you might want to create this)
       navigate("/");
     } catch (error) {
       console.error("Error during checkout:", error);
@@ -171,7 +158,6 @@ export default function Billing() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Plan Summary */}
           <div className="md:col-span-1">
             <Card className="bg-black/50 border border-white/10 text-white backdrop-blur-md shadow-lg overflow-hidden">
               <CardHeader className="bg-minecraft-secondary/20 border-b border-white/10">
@@ -189,7 +175,7 @@ export default function Billing() {
                   
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
-                      <Memory className="h-4 w-4 text-minecraft-secondary" />
+                      <MemoryStick className="h-4 w-4 text-minecraft-secondary" />
                       <span className="text-gray-300">{selectedPlan.features[0]}</span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -221,7 +207,6 @@ export default function Billing() {
             </Card>
           </div>
           
-          {/* Checkout Form */}
           <div className="md:col-span-2">
             <Card className="bg-black/50 border border-white/10 text-white backdrop-blur-md shadow-lg">
               <CardHeader>
@@ -235,7 +220,6 @@ export default function Billing() {
               <CardContent>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    {/* Server Details */}
                     <div className="space-y-4">
                       <h3 className="text-lg font-medium flex items-center gap-2">
                         <Server className="h-5 w-5" /> 
@@ -261,7 +245,6 @@ export default function Billing() {
                       />
                     </div>
                     
-                    {/* Account Information */}
                     <div className="space-y-4 pt-4 border-t border-white/10">
                       <h3 className="text-lg font-medium flex items-center gap-2">
                         <CreditCard className="h-5 w-5" /> 
@@ -309,7 +292,6 @@ export default function Billing() {
                       )}
                     </div>
                     
-                    {/* Billing Address */}
                     <div className="space-y-4 pt-4 border-t border-white/10">
                       <h3 className="text-lg font-medium">Billing Address</h3>
                       
@@ -418,7 +400,6 @@ export default function Billing() {
                       />
                     </div>
                     
-                    {/* Payment Method */}
                     <div className="space-y-4 pt-4 border-t border-white/10">
                       <h3 className="text-lg font-medium">Payment Method</h3>
                       
