@@ -1,29 +1,13 @@
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, LogIn, Menu, X, IndianRupee, LogOut, ChevronDown, Settings, User } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
+import { Server, Menu, X, IndianRupee, ChevronDown, Settings, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const checkAuth = () => {
-      const auth = localStorage.getItem("isAuthenticated");
-      setIsAuthenticated(auth === "true");
-    };
-
-    checkAuth();
-
-    window.addEventListener("storage", checkAuth);
-    
-    return () => {
-      window.removeEventListener("storage", checkAuth);
-    };
-  }, []);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -31,22 +15,6 @@ export default function Navigation() {
 
   const toggleDesktopMenu = () => {
     setDesktopMenuOpen(!desktopMenuOpen);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("isAuthenticated");
-    setIsAuthenticated(false);
-    toast.success("Successfully signed out");
-    
-    window.dispatchEvent(new Event("storage"));
-  };
-
-  const navigateToAuth = () => {
-    navigate("/auth");
-    const currentTab = localStorage.getItem("authTab") || "signin";
-    localStorage.setItem("authTab", currentTab);
-    setMobileMenuOpen(false);
-    setDesktopMenuOpen(false);
   };
 
   return (
@@ -67,28 +35,6 @@ export default function Navigation() {
             </a>
 
             <div className="hidden md:flex items-center">
-              <div className="flex items-center mr-4">
-                {isAuthenticated ? (
-                  <Button
-                    onClick={handleLogout}
-                    variant="ghost"
-                    className="flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/10 px-4"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    Sign Out
-                  </Button>
-                ) : (
-                  <Button
-                    onClick={navigateToAuth}
-                    variant="ghost"
-                    className="flex items-center gap-2 text-gray-400 hover:text-white hover:bg-white/10 px-4"
-                  >
-                    <LogIn className="w-4 h-4" />
-                    <span>Sign In / Up</span>
-                  </Button>
-                )}
-              </div>
-
               <div className="relative">
                 <Button
                   onClick={toggleDesktopMenu}
@@ -107,28 +53,24 @@ export default function Navigation() {
                   }`}
                 >
                   <div className="py-3 px-4 flex flex-col">
-                    {isAuthenticated && (
-                      <>
-                        <a
-                          href="https://panel.enderhost.in"
-                          className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
-                          onClick={() => setDesktopMenuOpen(false)}
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          <Settings className="w-4 h-4" />
-                          Game Panel
-                        </a>
-                        <a
-                          href="/client-area"
-                          className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
-                          onClick={() => setDesktopMenuOpen(false)}
-                        >
-                          <User className="w-4 h-4" />
-                          Client Area
-                        </a>
-                      </>
-                    )}
+                    <a
+                      href="https://panel.enderhost.in"
+                      className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+                      onClick={() => setDesktopMenuOpen(false)}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <Settings className="w-4 h-4" />
+                      Game Panel
+                    </a>
+                    <a
+                      href="/client-area"
+                      className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+                      onClick={() => setDesktopMenuOpen(false)}
+                    >
+                      <User className="w-4 h-4" />
+                      Client Area
+                    </a>
                     <a
                       href="#pricing"
                       className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
@@ -183,28 +125,24 @@ export default function Navigation() {
         }`}
       >
         <div className="py-3 px-4 flex flex-col">
-          {isAuthenticated && (
-            <>
-              <a
-                href="https://panel.enderhost.in"
-                className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
-                onClick={() => setMobileMenuOpen(false)}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Settings className="w-4 h-4" />
-                Game Panel
-              </a>
-              <a
-                href="/client-area"
-                className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <User className="w-4 h-4" />
-                Client Area
-              </a>
-            </>
-          )}
+          <a
+            href="https://panel.enderhost.in"
+            className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+            onClick={() => setMobileMenuOpen(false)}
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Settings className="w-4 h-4" />
+            Game Panel
+          </a>
+          <a
+            href="/client-area"
+            className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <User className="w-4 h-4" />
+            Client Area
+          </a>
           <a
             href="#pricing"
             className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
@@ -227,27 +165,6 @@ export default function Navigation() {
             />
             Support
           </a>
-          
-          {isAuthenticated ? (
-            <button
-              onClick={() => {
-                handleLogout();
-                setMobileMenuOpen(false);
-              }}
-              className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
-            >
-              <LogOut className="w-4 h-4" />
-              Sign Out
-            </button>
-          ) : (
-            <button
-              onClick={navigateToAuth}
-              className="mt-2 py-3 px-4 bg-minecraft-secondary hover:bg-minecraft-dark text-white rounded-lg transition-colors flex items-center gap-2"
-            >
-              <LogIn className="w-4 h-4" />
-              Sign In / Up
-            </button>
-          )}
         </div>
       </div>
     </div>
