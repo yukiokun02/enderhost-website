@@ -39,8 +39,7 @@ const planCategories = [
         ],
         icon: "Oak Log",
         players: "3+ Players",
-        popular: false,
-        orderLink: "https://billing.enderhost.in/index.php?rp=/store/the-vanilla/getting-woods"
+        popular: false
       },
       {
         name: "Getting an Upgrade",
@@ -326,25 +325,14 @@ export default function Pricing() {
                       ))}
                     </ul>
                     
-                    {plan.orderLink ? (
-                      <a href={plan.orderLink} target="_blank" rel="noopener noreferrer" className="block">
-                        <Button
-                          className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
-                            ${category.buttonColor} text-white hover:scale-105`}
-                        >
-                          Buy Now
-                        </Button>
-                      </a>
-                    ) : (
-                      <Link to="/purchase">
-                        <Button
-                          className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
-                            ${category.buttonColor} text-white hover:scale-105`}
-                        >
-                          Buy Now
-                        </Button>
-                      </Link>
-                    )}
+                    <Link to="/purchase">
+                      <Button
+                        className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
+                          ${category.buttonColor} text-white hover:scale-105`}
+                      >
+                        Buy Now
+                      </Button>
+                    </Link>
                   </div>
                 ))}
               </div>
