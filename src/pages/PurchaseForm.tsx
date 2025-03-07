@@ -1,8 +1,7 @@
 
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { ArrowRight, Cpu, HardDrive, Gauge, Signal, Cloud } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { ArrowRight, ArrowLeft, Cpu, HardDrive, Gauge, Signal, Cloud } from "lucide-react";
 
 import {
   Select,
@@ -184,7 +183,9 @@ const PurchaseForm = () => {
     name: "",
     email: "",
     password: "",
+    phone: "",
     plan: "",
+    payment_method: "upi", // Default payment method
   });
   const [selectedPlan, setSelectedPlan] = useState<typeof allPlans[0] | null>(null);
 
@@ -201,10 +202,8 @@ const PurchaseForm = () => {
     setSelectedPlan(plan || null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted with data:", formData);
-    // Here you would typically handle form submission, API calls, etc.
+  const handlePaymentMethodChange = (method: string) => {
+    setFormData((prev) => ({ ...prev, payment_method: method }));
   };
 
   // Helper function to get the icon for a spec
@@ -241,6 +240,17 @@ const PurchaseForm = () => {
         }}
       />
 
+      {/* Back button */}
+      <Button
+        variant="ghost"
+        size="sm"
+        className="absolute top-8 left-8 text-white z-20 md:top-8 md:left-8"
+        onClick={() => navigate("/")}
+      >
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        Back to Home
+      </Button>
+
       {/* Main content */}
       <main className="flex-grow relative z-10">
         <div className="container mx-auto px-4 py-12 md:py-24">
@@ -257,7 +267,7 @@ const PurchaseForm = () => {
 
             {/* Purchase form */}
             <div className="bg-black/50 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur-sm shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form action="/process_order.php" method="POST" className="space-y-6">
                 {/* Server Name */}
                 <div className="space-y-2">
                   <label
@@ -316,6 +326,26 @@ const PurchaseForm = () => {
                   />
                 </div>
 
+                {/* Phone Number - New Field */}
+                <div className="space-y-2">
+                  <label
+                    htmlFor="phone"
+                    className="text-sm font-medium text-white/90"
+                  >
+                    Phone Number
+                  </label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="Your Phone Number"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="bg-black/70 border-white/10 text-white placeholder:text-gray-500"
+                    required
+                  />
+                </div>
+
                 {/* Password */}
                 <div className="space-y-2">
                   <label
@@ -345,6 +375,7 @@ const PurchaseForm = () => {
                     Select a Plan
                   </label>
                   <Select
+                    name="plan"
                     onValueChange={(value) => handleSelectChange("plan", value)}
                   >
                     <SelectTrigger
@@ -413,14 +444,25 @@ const PurchaseForm = () => {
                   </div>
                 )}
 
-                {/* Payment Methods Info */}
+                {/* Payment Methods */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-white/90">
                     Payment Methods
                   </label>
                   <div className="bg-black/70 border border-white/10 rounded-md p-4 backdrop-blur-sm">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                      <div className="flex items-center gap-3">
+                      <div 
+                        className={`flex items-center gap-3 p-3 rounded-md cursor-pointer w-full ${formData.payment_method === 'upi' ? 'bg-white/10' : ''}`}
+                        onClick={() => handlePaymentMethodChange('upi')}
+                      >
+                        <input 
+                          type="radio" 
+                          name="payment_method" 
+                          value="upi" 
+                          checked={formData.payment_method === 'upi'} 
+                          onChange={() => {}} 
+                          className="mr-2"
+                        />
                         <img 
                           src="/lovable-uploads/cb954d69-7821-4704-9097-55b6924a4a9f.png" 
                           alt="UPI" 
@@ -428,7 +470,19 @@ const PurchaseForm = () => {
                         />
                         <span className="text-white">UPI</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      
+                      <div 
+                        className={`flex items-center gap-3 p-3 rounded-md cursor-pointer w-full ${formData.payment_method === 'card' ? 'bg-white/10' : ''}`}
+                        onClick={() => handlePaymentMethodChange('card')}
+                      >
+                        <input 
+                          type="radio" 
+                          name="payment_method" 
+                          value="card" 
+                          checked={formData.payment_method === 'card'} 
+                          onChange={() => {}} 
+                          className="mr-2"
+                        />
                         <img 
                           src="/lovable-uploads/d388e7a8-1138-4512-be96-e93b72c348ee.png" 
                           alt="Credit/Debit Card" 
