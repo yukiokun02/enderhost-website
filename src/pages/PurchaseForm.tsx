@@ -1,8 +1,8 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, ArrowRight } from "lucide-react";
-import Footer from "@/components/Footer";
+import { ArrowRight, CreditCard } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import {
   Select,
@@ -22,7 +22,6 @@ const PurchaseForm = () => {
     email: "",
     password: "",
     plan: "",
-    paymentMode: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -174,30 +173,32 @@ const PurchaseForm = () => {
                   </Select>
                 </div>
 
-                {/* Payment Mode */}
+                {/* Payment Methods Info */}
                 <div className="space-y-2">
-                  <label
-                    htmlFor="paymentMode"
-                    className="text-sm font-medium text-white/90"
-                  >
-                    Payment Mode
+                  <label className="text-sm font-medium text-white/90">
+                    Payment Methods
                   </label>
-                  <Select
-                    onValueChange={(value) =>
-                      handleSelectChange("paymentMode", value)
-                    }
-                  >
-                    <SelectTrigger
-                      id="paymentMode"
-                      className="w-full bg-black/70 border-white/10 text-white"
-                    >
-                      <SelectValue placeholder="Select Payment Method" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-black/90 border-white/10 text-white">
-                      <SelectItem value="upi">UPI</SelectItem>
-                      <SelectItem value="card">Credit/Debit Card</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <div className="bg-black/70 border border-white/10 rounded-md p-4">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src="/lovable-uploads/cb954d69-7821-4704-9097-55b6924a4a9f.png" 
+                          alt="UPI" 
+                          className="h-8 object-contain" 
+                        />
+                        <span className="text-white">UPI</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src="/lovable-uploads/d388e7a8-1138-4512-be96-e93b72c348ee.png" 
+                          alt="Credit/Debit Card" 
+                          className="h-8 object-contain" 
+                        />
+                        <span className="text-white">Credit/Debit Card</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">We support these payment methods for your convenience.</p>
                 </div>
 
                 {/* Submit Button */}
@@ -215,19 +216,19 @@ const PurchaseForm = () => {
             <div className="mt-8 text-center text-gray-500 text-sm">
               <p>
                 By proceeding, you agree to our{" "}
-                <a
-                  href="/terms-of-service"
+                <Link
+                  to="/terms-of-service"
                   className="text-minecraft-secondary hover:underline"
                 >
                   Terms of Service
-                </a>{" "}
+                </Link>{" "}
                 and{" "}
-                <a
-                  href="/refund-policy"
+                <Link
+                  to="/refund-policy"
                   className="text-minecraft-secondary hover:underline"
                 >
                   Refund Policy
-                </a>
+                </Link>
                 .
               </p>
             </div>
@@ -235,7 +236,16 @@ const PurchaseForm = () => {
         </div>
       </main>
 
-      <Footer />
+      {/* Simplified Footer */}
+      <footer className="bg-black/50 border-t border-white/10 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center">
+            <p className="text-gray-400 text-sm">
+              Copyright © {new Date().getFullYear()} EnderHOST<sup className="text-xs">®</sup>. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
