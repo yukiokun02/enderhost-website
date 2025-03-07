@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Payment Success Handler for EnderHOST
@@ -11,7 +12,16 @@ session_start();
 $api_key = '15532137afaebf-b938bf237d6279e818';
 $auth_token = '25f57d21e4306fdbd30f4a6b-cac962ba';
 $salt = 'bf10d739a2a340f49a25c-c5e323d8626';
+
+// IMPORTANT: For testing, use the sandbox environment
+// Uncomment this line for testing and comment it for production
+// $api_endpoint = 'https://test.instamojo.com/api/1.1/payment-requests/';
+
+// For production mode, use this:
 $api_endpoint = 'https://www.instamojo.com/api/1.1/payment-requests/';
+
+// YOUR ACTUAL DOMAIN - Update this with your Oracle VM's public domain or IP
+$your_domain = "http://your-domain-or-ip.com"; // Replace with your actual domain or IP
 
 // Initialize variables
 $payment_verified = false;

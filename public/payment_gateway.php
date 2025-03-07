@@ -8,10 +8,10 @@ if (!isset($_GET['order_id']) || empty($_GET['order_id'])) {
 
 $order_id = $_GET['order_id'];
 
-// Database connection parameters
-$servername = "localhost";
-$username = "db_username"; // Replace with your actual database username
-$password = "db_password"; // Replace with your actual database password
+// Database connection parameters - UPDATE THESE with your Oracle VM database credentials
+$servername = "localhost"; // This might stay the same unless your DB is on a different server
+$username = "your_db_username"; // Replace with your actual Oracle VM database username
+$password = "your_db_password"; // Replace with your actual Oracle VM database password
 $dbname = "enderhost";
 
 try {
