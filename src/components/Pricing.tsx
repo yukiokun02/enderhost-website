@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Check, ChevronDown, ChevronUp, Cpu, Cloud, HardDrive, Gauge, Signal, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const minecraftItems = {
   "Oak Log": "/lovable-uploads/9b5fa930-abf6-434b-b424-efa2c7da4843.png",
@@ -335,12 +336,14 @@ export default function Pricing() {
                         </Button>
                       </a>
                     ) : (
-                      <Button
-                        className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
-                          ${category.buttonColor} text-white hover:scale-105`}
-                      >
-                        Buy Now
-                      </Button>
+                      <Link to="/purchase">
+                        <Button
+                          className={`w-full py-5 font-medium flex items-center justify-center gap-2 transition-all duration-300 
+                            ${category.buttonColor} text-white hover:scale-105`}
+                        >
+                          Buy Now
+                        </Button>
+                      </Link>
                     )}
                   </div>
                 ))}
