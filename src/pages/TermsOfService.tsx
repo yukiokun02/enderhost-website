@@ -32,92 +32,118 @@ export default function TermsOfService() {
 
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto bg-black/30 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">Terms of Service</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 text-center">Terms and Conditions</h1>
           
           <div className="text-gray-300 space-y-8">
             {/* Introduction */}
             <div>
               <p className="mb-6 text-lg">
-                Welcome to Ender Host! By accessing or using our services, you agree to the following terms and conditions. 
-                Please read them carefully before purchasing or using any of our hosting services. These terms constitute a legally binding agreement between you (the customer) and Ender Host (the service provider).
+                By accessing this website, you agree to be bound by these Terms and Conditions ("Terms") in a legally binding agreement between us ("EnderHOST" or "we" or "our") and you ("User" or "you" or "your"). Please read these Terms carefully before accessing or using the Website. If you do not agree to these Terms, you may not access the Platform. We reserve the right to update and change the Terms by posting updates to the Platform. You are advised to review the Terms periodically for any updates. If such amendments are not acceptable to you, please discontinue using the Platform immediately.
               </p>
             </div>
             
-            {/* Section 1 */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">1. Server Usage Policy</h2>
-              <ul className="list-disc pl-6 space-y-3 text-lg">
-                <li>Our hosting services are designed for fair use only, which means using server resources in a reasonable manner consistent with the purchased plan specifications.</li>
-                <li>Any illegal activities, including but not limited to DDoSing, crypto mining, distributing malware, hosting phishing websites, copyright infringement, or excessive resource usage beyond plan limits, will result in immediate termination of your account without refund.</li>
-                <li>We reserve the right to suspend or terminate servers that violate our policies or disrupt the performance of our shared hosting infrastructure. Ender Host will make reasonable attempts to notify customers before taking action unless immediate action is necessary to protect our systems or other customers.</li>
-                <li>Service usage must comply with all applicable local, state, national, and international laws and regulations. Users are responsible for ensuring their content and activities adhere to these laws.</li>
-              </ul>
-            </div>
-            
-            {/* Section 2 */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">2. Refund and Cancellation Policy</h2>
-              <p className="mb-4 text-lg">
-                For detailed information about our refund and cancellation procedures, please visit our complete <Link to="/refund-policy" className="text-minecraft-secondary hover:underline">Refund Policy</Link> page. Here's a summary of key points:
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">1. Eligibility</h2>
+              <p className="text-lg">
+                You represent and warrant that you have the right, power, and authority to agree to these Terms and to perform your obligations hereunder.
               </p>
-              <ul className="list-disc pl-6 space-y-3 text-lg">
-                <li>Customers can request a full refund within 24 hours of purchase if the service is not delivered as advertised or is not functioning properly due to issues on our end. To request a refund, contact our support team through the official support channels with your order information.</li>
-                <li>Refunds will not be provided for violations of our Terms of Service, or for service cancellations after the initial 24-hour period.</li>
-                <li>For monthly subscriptions, you may cancel your service at any time through your client portal. No partial refunds will be issued for unused portions of the current billing period.</li>
-                <li>For annual plans, no refunds will be provided after the initial 24-hour period, as these plans are offered at a significant discount compared to monthly pricing.</li>
-                <li>Cancellations must be completed at least 24 hours before the next billing cycle to avoid being charged for the upcoming period.</li>
+            </div>
+            
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">2. Definitions</h2>
+              <ul className="list-disc pl-6 space-y-2 text-lg">
+                <li>"Payment Instrument" includes credit card, debit card, bank account, UPI, IMPS, or any other payment methods that may be added by financial institutions from time to time.</li>
+                <li>"Platform" refers to the website or service where EnderHOST offers its products or services and where Transactions may be initiated.</li>
+                <li>"Transaction" refers to the order or request placed by the User to purchase products and/or services by paying the Transaction Amount to EnderHOST.</li>
+                <li>"Transaction Amount" means the amount paid by the User for a Transaction.</li>
+                <li>"User/Users" means any person availing the products and/or services offered on the Platform.</li>
+                <li>"Website" shall mean www.enderhost.in.</li>
               </ul>
             </div>
             
-            {/* Section 3 */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">3. Payment and Late Fees</h2>
-              <ul className="list-disc pl-6 space-y-3 text-lg">
-                <li>Servers will be automatically suspended 1 day after a missed payment. During suspension, your server will be inaccessible, but your data will remain intact for a limited time.</li>
-                <li>If payment is not received within 5 days of the due date, all server files will be deleted permanently without possibility of recovery. We send multiple reminders before deletion occurs, but it is ultimately the customer's responsibility to ensure timely payment.</li>
-                <li>We accept payments via credit card, PayPal, and cryptocurrency. All prices are listed in USD unless otherwise specified.</li>
-                <li>For customers with multiple services, partial payments will be applied to the oldest outstanding invoices first.</li>
-                <li>Ender Host reserves the right to change pricing at any time, but existing customers will receive at least 30 days' notice before any price increases take effect on their accounts.</li>
-              </ul>
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">3. EnderHOST's Rights</h2>
+              <p className="text-lg">
+                We may collect, store, and share information provided by you to deliver the products and/or services availed by you on our Platform and to contact you in relation to the same.
+              </p>
             </div>
             
-            {/* Section 4 */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">4. Liability and Backups</h2>
-              <ul className="list-disc pl-6 space-y-3 text-lg">
-                <li>We take regular offsite backups of all server data as part of our disaster recovery plan, but customers are strongly encouraged to maintain their own regular backups of critical data. Our backup system is designed for disaster recovery purposes rather than individual file recovery.</li>
-                <li>Ender Host is not responsible for any data loss, whether caused by hardware failure, software issues, or human error. Our maximum liability is limited to the amount paid for the service during the month in which the incident occurred.</li>
-                <li>While we implement industry-standard security measures, we cannot guarantee absolute protection against sophisticated attacks, zero-day vulnerabilities, or security issues arising from customer-installed software. Customers are responsible for maintaining the security of their applications and access credentials.</li>
-                <li>We do not provide compensation for downtime except as specified in our Service Level Agreement (SLA) for business-tier hosting plans.</li>
-                <li>Customers indemnify and hold Ender Host harmless from any claims resulting from the customer's content or use of our services.</li>
-              </ul>
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">4. User Responsibilities</h2>
+              <p className="text-lg">
+                You agree to provide true, complete, and up-to-date information about yourself for the purpose of completing Transactions. This includes personal details such as name, email address, phone number, and payment information required for the transaction.
+              </p>
             </div>
             
-            {/* Section 5 */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">5. Community Guidelines</h2>
-              <ul className="list-disc pl-6 space-y-3 text-lg">
-                <li>Treat all users and staff members with respect in all communications, including support tickets, community forums, and social media interactions. We value constructive feedback but have zero tolerance for abusive language or behavior.</li>
-                <li>Spamming, harassment, hate speech, or toxic behavior toward our staff or other community members may result in account suspension or termination without refund, at our sole discretion.</li>
-                <li>Our support team aims to resolve all issues promptly and professionally. We expect customers to provide accurate information when reporting issues and to follow troubleshooting instructions when provided.</li>
-                <li>When posting in our community forums or Discord server, please follow the channel-specific rules and keep discussions on-topic. Share knowledge freely and help foster a supportive community environment.</li>
-                <li>We encourage reporting of bugs, security vulnerabilities, or policy violations through appropriate channels. Responsible disclosure of security issues is appreciated and may be eligible for recognition in our security acknowledgments.</li>
-              </ul>
-            </div>
-            
-            {/* Section 6 */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">6. Privacy Policy</h2>
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">5. Prohibited Actions</h2>
               <p className="text-lg mb-3">
-                By using our services, you agree to our <Link to="/privacy-policy" className="text-minecraft-secondary hover:underline">Privacy Policy</Link>, which outlines how we handle your data. Key points include:
+                As a User of the Platform, you agree not to:
               </p>
-              <ul className="list-disc pl-6 space-y-3 text-lg">
-                <li>We collect only the information necessary to provide our services, including contact details, payment information, and server usage statistics.</li>
-                <li>Your personal data is never sold to third parties. We may share limited information with service providers who help us deliver our services (such as payment processors).</li>
-                <li>We implement technical and organizational measures to protect your data against unauthorized access.</li>
-                <li>You have the right to request a copy of your personal data or to have it deleted, subject to our legal obligations to maintain certain records.</li>
-                <li>For a complete understanding of our data practices, please review our full Privacy Policy document available on our website.</li>
+              <ul className="list-disc pl-6 space-y-2 text-lg">
+                <li>Access or use the Platform for purposes other than those authorized by EnderHOST.</li>
+                <li>Collect usernames, email addresses, or other information of users by electronic or other means without permission.</li>
+                <li>Circumvent or interfere with security features of the Platform.</li>
+                <li>Impersonate other users or use false information.</li>
+                <li>Upload or transmit viruses, spam, or any material that disrupts the Platform's functionality.</li>
+                <li>Use the Platform to harass, abuse, or harm others.</li>
+                <li>Attempt to reverse-engineer any part of the Platform.</li>
+                <li>Use the Platform in a manner inconsistent with applicable laws or regulations.</li>
               </ul>
+            </div>
+            
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">6. Limitation of Liability</h2>
+              <p className="text-lg">
+                In the event of a defective product or service, the User's only recourse is to initiate a refund request, subject to our refund policy. EnderHOST disclaims any liability for losses, and the User agrees to indemnify and hold harmless EnderHOST and its representatives against any claims arising from a breach of these Terms by the User.
+              </p>
+            </div>
+            
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">7. Guidelines for Reviews</h2>
+              <p className="text-lg mb-3">
+                When posting a review, you must:
+              </p>
+              <ul className="list-disc pl-6 space-y-2 text-lg">
+                <li>Have firsthand experience with the product or service being reviewed.</li>
+                <li>Avoid offensive, abusive, or discriminatory language.</li>
+                <li>Not be affiliated with competitors if posting negative reviews.</li>
+                <li>Avoid posting false or misleading information.</li>
+              </ul>
+              <p className="mt-3 text-lg">
+                EnderHOST reserves the right to accept, reject, or remove reviews at its sole discretion.
+              </p>
+            </div>
+            
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">8. Governing Laws & Dispute Resolution</h2>
+              <p className="text-lg">
+                These Terms are governed by the laws of India. Any disputes shall be resolved through arbitration in Bengaluru, in accordance with the Arbitration and Conciliation Act, 1996. The seat of arbitration shall be India, and proceedings shall be conducted in English. The decision of the arbitrator shall be final and binding.
+              </p>
+            </div>
+            
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">9. Grievance Redressal</h2>
+              <p className="text-lg">
+                If you have any questions or complaints regarding products or services, or issues related to Transactions, please reach out to our support team at support@enderhost.in.
+              </p>
+            </div>
+            
+            <div className="border-t border-white/10 pt-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-white mb-4">10. Disclaimer</h2>
+              <p className="text-lg mb-3">
+                By initiating a Transaction, you agree to provide accurate payment details and to use legitimate and legal sources of funds. EnderHOST disclaims any liability for unauthorized use of a User's Payment Instrument or for any losses arising directly or indirectly from declined Transactions, errors, or fraudulent activities.
+              </p>
+              <p className="text-lg">
+                EnderHOST does not guarantee that the Platform will be secure or free from bugs or viruses. You are responsible for using adequate security measures and virus protection software.
+              </p>
+            </div>
+            
+            {/* Conclusion */}
+            <div className="border-t border-white/10 pt-4">
+              <p className="text-lg font-medium text-white">
+                By using our Platform, you acknowledge that you have read, understood, and agree to these Terms and Conditions.
+              </p>
             </div>
             
             {/* Last updated */}
