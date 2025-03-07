@@ -219,19 +219,31 @@ const PurchaseForm = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
+      {/* Hero background image */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: 'url("/lovable-uploads/9de719a9-cca7-4faa-bc79-f87f3245bd99.png")',
+          backgroundPosition: '50% 20%',
+          zIndex: 0
+        }}
+      />
+      
+      {/* Enhanced overlay gradient for better text contrast */}
+      <div className="fixed inset-0 bg-gradient-to-t from-minecraft-dark via-black/85 to-black/40 z-0" />
+      
       {/* Grid background overlay */}
       <div
-        className="fixed inset-0 grid-background"
+        className="fixed inset-0 grid-background z-0"
         style={{
-          zIndex: 0,
           opacity: 0.06,
           backgroundSize: "35px 35px",
         }}
       />
 
       {/* Main content */}
-      <main className="flex-grow">
-        <div className="container mx-auto px-4 py-12 md:py-24 relative z-10">
+      <main className="flex-grow relative z-10">
+        <div className="container mx-auto px-4 py-12 md:py-24">
           <div className="max-w-2xl mx-auto">
             {/* Form header */}
             <div className="text-center mb-10">
@@ -244,7 +256,7 @@ const PurchaseForm = () => {
             </div>
 
             {/* Purchase form */}
-            <div className="bg-black/50 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur-sm">
+            <div className="bg-black/50 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur-sm shadow-xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Server Name */}
                 <div className="space-y-2">
@@ -369,7 +381,7 @@ const PurchaseForm = () => {
 
                 {/* Show selected plan specs */}
                 {selectedPlan && (
-                  <div className="space-y-3 bg-black/70 border border-white/10 rounded-md p-4 mt-4">
+                  <div className="space-y-3 bg-black/70 border border-white/10 rounded-md p-4 mt-4 backdrop-blur-sm">
                     <h3 className="font-medium text-white flex items-center gap-2">
                       <span>{selectedPlan.name}</span>
                       <span className="text-xs px-2 py-0.5 bg-white/10 rounded-full text-white/70">
@@ -406,7 +418,7 @@ const PurchaseForm = () => {
                   <label className="text-sm font-medium text-white/90">
                     Payment Methods
                   </label>
-                  <div className="bg-black/70 border border-white/10 rounded-md p-4">
+                  <div className="bg-black/70 border border-white/10 rounded-md p-4 backdrop-blur-sm">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
                         <img 
@@ -465,7 +477,7 @@ const PurchaseForm = () => {
       </main>
 
       {/* Simplified Footer */}
-      <footer className="bg-black/50 border-t border-white/10 backdrop-blur-sm">
+      <footer className="bg-black/50 border-t border-white/10 backdrop-blur-sm relative z-10">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <p className="text-gray-400 text-sm">
