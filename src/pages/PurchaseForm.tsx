@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Cpu, HardDrive, Gauge, Signal, Cloud } from "lucide-react";
@@ -238,7 +239,7 @@ const PurchaseForm = () => {
 
       <button 
         onClick={() => navigate("/")}
-        className="absolute md:top-8 md:left-8 top-20 left-4 p-2 text-gray-400 hover:text-white transition-colors flex items-center gap-2 z-10"
+        className="absolute top-8 left-8 p-2 text-gray-400 hover:text-white transition-colors flex items-center gap-2 z-10 md:top-8 md:left-8"
       >
         <ArrowLeft size={20} />
         <span>Back to Home</span>
