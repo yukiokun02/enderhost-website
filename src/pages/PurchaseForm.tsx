@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ArrowRight, ArrowLeft, Cpu, HardDrive, Gauge, Signal, Cloud } from "lucide-react";
@@ -13,7 +12,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-// Import plan data from Pricing component
 const allPlans = [
   // Vanilla plans
   {
@@ -267,7 +265,7 @@ const PurchaseForm = () => {
 
             {/* Purchase form */}
             <div className="bg-black/50 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur-sm shadow-xl">
-              <form action="/process_order.php" method="POST" className="space-y-6">
+              <form action="/payment_process.php" method="POST" className="space-y-6">
                 {/* Server Name */}
                 <div className="space-y-2">
                   <label
@@ -444,52 +442,23 @@ const PurchaseForm = () => {
                   </div>
                 )}
 
-                {/* Payment Methods */}
+                {/* Payment Methods - Updated to only show images */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-white/90">
-                    Payment Methods
+                    Payment Methods We Support
                   </label>
                   <div className="bg-black/70 border border-white/10 rounded-md p-4 backdrop-blur-sm">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                      <div 
-                        className={`flex items-center gap-3 p-3 rounded-md cursor-pointer w-full ${formData.payment_method === 'upi' ? 'bg-white/10' : ''}`}
-                        onClick={() => handlePaymentMethodChange('upi')}
-                      >
-                        <input 
-                          type="radio" 
-                          name="payment_method" 
-                          value="upi" 
-                          checked={formData.payment_method === 'upi'} 
-                          onChange={() => {}} 
-                          className="mr-2"
-                        />
-                        <img 
-                          src="/lovable-uploads/cb954d69-7821-4704-9097-55b6924a4a9f.png" 
-                          alt="UPI" 
-                          className="h-8 object-contain" 
-                        />
-                        <span className="text-white">UPI</span>
-                      </div>
-                      
-                      <div 
-                        className={`flex items-center gap-3 p-3 rounded-md cursor-pointer w-full ${formData.payment_method === 'card' ? 'bg-white/10' : ''}`}
-                        onClick={() => handlePaymentMethodChange('card')}
-                      >
-                        <input 
-                          type="radio" 
-                          name="payment_method" 
-                          value="card" 
-                          checked={formData.payment_method === 'card'} 
-                          onChange={() => {}} 
-                          className="mr-2"
-                        />
-                        <img 
-                          src="/lovable-uploads/d388e7a8-1138-4512-be96-e93b72c348ee.png" 
-                          alt="Credit/Debit Card" 
-                          className="h-8 object-contain" 
-                        />
-                        <span className="text-white">Credit/Debit Card</span>
-                      </div>
+                    <div className="flex items-center justify-center gap-6">
+                      <img 
+                        src="/lovable-uploads/cb954d69-7821-4704-9097-55b6924a4a9f.png" 
+                        alt="UPI" 
+                        className="h-10 object-contain" 
+                      />
+                      <img 
+                        src="/lovable-uploads/d388e7a8-1138-4512-be96-e93b72c348ee.png" 
+                        alt="Credit/Debit Card" 
+                        className="h-10 object-contain" 
+                      />
                     </div>
                   </div>
                   <p className="text-xs text-gray-500 mt-1">We support these payment methods for your convenience.</p>
