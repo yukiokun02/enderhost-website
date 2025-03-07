@@ -219,12 +219,12 @@ const PurchaseForm = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
-      {/* Hero background image */}
+      {/* Hero background image - Updated position to top */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        className="fixed inset-0 bg-cover bg-no-repeat"
         style={{ 
           backgroundImage: 'url("/lovable-uploads/9de719a9-cca7-4faa-bc79-f87f3245bd99.png")',
-          backgroundPosition: '50% 20%',
+          backgroundPosition: 'center top',
           zIndex: 0
         }}
       />

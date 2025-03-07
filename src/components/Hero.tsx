@@ -12,12 +12,12 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image - Keeping the same one */}
+      {/* Background Image - Updated position to top */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat"
         style={{ 
           backgroundImage: 'url("/lovable-uploads/9de719a9-cca7-4faa-bc79-f87f3245bd99.png")',
-          backgroundPosition: '50% 20%'
+          backgroundPosition: 'center top'
         }}
       />
       
