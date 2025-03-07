@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, Menu, X, IndianRupee, ChevronDown, Settings, User } from "lucide-react";
+import { Server, Menu, X, IndianRupee, ChevronDown, Settings, CreditCard } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
@@ -65,12 +65,12 @@ export default function Navigation() {
                       Game Panel
                     </a>
                     <a
-                      href="/client-area"
+                      href="/purchase"
                       className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
                       onClick={() => setDesktopMenuOpen(false)}
                     >
-                      <User className="w-4 h-4" />
-                      Client Area
+                      <CreditCard className="w-4 h-4" />
+                      Billing Area
                     </a>
                     <a
                       href="#pricing"
@@ -137,12 +137,12 @@ export default function Navigation() {
             Game Panel
           </a>
           <a
-            href="/client-area"
+            href="/purchase"
             className="py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center gap-2"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <User className="w-4 h-4" />
-            Client Area
+            <CreditCard className="w-4 h-4" />
+            Billing Area
           </a>
           <a
             href="#pricing"

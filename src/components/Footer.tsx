@@ -1,3 +1,4 @@
+
 import { GamepadIcon, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -46,10 +47,10 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base">
+                <Link to="/purchase" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base">
                   <CreditCard className="w-5 h-5" />
                   Billing Area
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
