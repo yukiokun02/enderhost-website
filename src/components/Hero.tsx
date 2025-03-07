@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Server, Zap, Clock, Zap as ZapIcon, Globe } from "lucide-react";
 
@@ -11,13 +12,12 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with fixed top positioning */}
+      {/* Background Image - Keeping the same one */}
       <div 
-        className="absolute inset-0 bg-cover bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: 'url("/lovable-uploads/9de719a9-cca7-4faa-bc79-f87f3245bd99.png")',
-          backgroundPosition: 'top',
-          backgroundSize: 'cover'
+          backgroundPosition: '50% 20%'
         }}
       />
       
