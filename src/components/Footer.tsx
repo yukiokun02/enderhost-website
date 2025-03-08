@@ -1,12 +1,12 @@
 
-import { GamepadIcon, CreditCard } from "lucide-react";
+import { GamepadIcon, CreditCard, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
     <footer className="bg-black/50 border-t border-white/10 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 max-w-6xl mx-auto">
           {/* Company Info */}
           <div className="mb-6 md:mb-0">
             <div className="flex items-center space-x-3 mb-6">
@@ -55,6 +55,25 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Contact Us - New Section */}
+          <div className="mb-6 md:mb-0">
+            <h3 className="text-xl font-semibold text-white mb-6">Contact Us</h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="mailto:mail@enderhost.in" className="text-gray-400 hover:text-minecraft-secondary flex items-center gap-2 text-base">
+                  <Mail className="w-5 h-5" />
+                  mail@enderhost.in
+                </a>
+              </li>
+              <li className="text-gray-400 text-base">
+                We're here to help with any questions you might have about our services.
+              </li>
+              <li className="text-gray-400 text-base">
+                Response time: within 24 hours
+              </li>
+            </ul>
+          </div>
+
           {/* Legal */}
           <div>
             <h3 className="text-xl font-semibold text-white mb-6">Legal</h3>
@@ -78,7 +97,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3 pt-10 border-t border-white/10 mt-6">
+          <div className="col-span-1 md:col-span-2 lg:col-span-4 pt-10 border-t border-white/10 mt-6">
             <p className="text-gray-400 text-base">
               Copyright © {new Date().getFullYear()} EnderHOST<sup className="text-xs">®</sup>. All rights reserved.
             </p>
