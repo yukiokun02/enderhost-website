@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $server_name = isset($_POST['serverName']) ? sanitize_input($_POST['serverName']) : '';
     $full_name = isset($_POST['name']) ? sanitize_input($_POST['name']) : '';
     $email = isset($_POST['email']) ? sanitize_input($_POST['email']) : '';
-    $phone = isset($_POST['phone']) ? sanitize_input($_POST['phone']) : '';
+    $phone = isset($_POST['phone']) ? sanitize_input($_POST['phone']) : ''; // Optional field
     $plan = isset($_POST['plan']) ? sanitize_input($_POST['plan']) : '';
 
     // Validation
@@ -77,11 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Invalid email format";
     }
     
-    if (empty($phone)) {
-        $errors[] = "Phone number is required";
-    } elseif (!preg_match("/^[0-9]{10}$/", $phone)) {
-        $errors[] = "Phone number must be 10 digits";
-    }
+    // Phone is optional - no validation required
+    // Removed the phone validation since it's optional
     
     if (empty($plan)) {
         $errors[] = "Please select a plan";
@@ -114,10 +111,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'amount' => $amount,
             'buyer_name' => $full_name,
             'email' => $email,
-            'phone' => $phone,
+            'phone' => $phone, // This will be sent if provided, but is now optional
             'redirect_url' => $your_domain . '/payment-success.php',
             'send_email' => true,
-            'send_sms' => true,
+            'send_sms' => !empty($phone), // Only send SMS if phone number is provided
             'allow_repeated_payments' => false,
         ];
         
@@ -216,4 +213,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 </html>
-

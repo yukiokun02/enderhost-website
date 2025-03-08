@@ -1,3 +1,4 @@
+
 <?php
 // Database connection parameters - UPDATE THESE with your Oracle VM database credentials
 $servername = "localhost"; // This might stay the same unless your DB is on a different server
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = isset($_POST["email"]) ? sanitize_input($_POST["email"]) : "";
     $server_name = isset($_POST["serverName"]) ? sanitize_input($_POST["serverName"]) : "";
     $password = isset($_POST["password"]) ? $_POST["password"] : ""; // Will be hashed later
-    $phone = isset($_POST["phone"]) ? sanitize_input($_POST["phone"]) : "";
+    $phone = isset($_POST["phone"]) ? sanitize_input($_POST["phone"]) : ""; // Optional field
     $plan = isset($_POST["plan"]) ? sanitize_input($_POST["plan"]) : "";
     $payment_method = isset($_POST["payment_method"]) ? sanitize_input($_POST["payment_method"]) : "";
     
@@ -55,6 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($payment_method)) {
         $errors[] = "Please select a payment method";
     }
+    
+    // Note: Not validating phone as it's optional
     
     // If no validation errors, proceed
     if (empty($errors)) {
