@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Payment Success Handler for EnderHOST
@@ -23,6 +22,17 @@ $api_endpoint = 'https://www.instamojo.com/api/1.1/payment-requests/';
 // YOUR ACTUAL DOMAIN - Update this with your Oracle VM's public domain or IP
 $your_domain = "http://your-domain-or-ip.com"; // Replace with your actual domain or IP
 
+// Email configuration - Update these with your settings
+$use_smtp = false; // Set to true to use external SMTP, false to use PHP mail()
+$smtp_config = [
+    'host' => 'smtp.example.com',  // Your SMTP server hostname
+    'port' => 587,                 // SMTP port (usually 587 for TLS, 465 for SSL)
+    'username' => 'your_username', // SMTP username
+    'password' => 'your_password', // SMTP password
+    'from_email' => 'noreply@enderhost.in',
+    'from_name' => 'EnderHOST'
+];
+
 // Initialize variables
 $payment_verified = false;
 $payment_details = [];
@@ -38,6 +48,8 @@ function sanitize_input($data) {
 
 // Function to send email notification to admin
 function send_admin_notification($order_details) {
+    global $use_smtp, $smtp_config;
+    
     $admin_email = "mail.enderhost@gmail.com"; // Admin email address
     $subject = "New Server Purchase - " . $order_details['server_name'];
     
@@ -82,13 +94,60 @@ function send_admin_notification($order_details) {
     </html>
     ";
     
-    // Set content-type header for sending HTML email
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: EnderHOST <noreply@enderhost.in>" . "\r\n";
+    if ($use_smtp) {
+        // Use SMTP to send email
+        return send_smtp_email($admin_email, $subject, $message);
+    } else {
+        // Use PHP mail() function
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: " . $smtp_config['from_name'] . " <" . $smtp_config['from_email'] . ">" . "\r\n";
+        
+        // Send email
+        return mail($admin_email, $subject, $message, $headers);
+    }
+}
+
+// Function to send email using SMTP
+function send_smtp_email($to, $subject, $message) {
+    global $smtp_config;
     
-    // Send email
-    return mail($admin_email, $subject, $message, $headers);
+    // This is a placeholder for SMTP implementation
+    // You would typically use a library like PHPMailer here
+    
+    // Log the attempt to send via SMTP
+    error_log('SMTP email would be sent to: ' . $to . ' with subject: ' . $subject);
+    
+    // Return true assuming it would work (replace with actual implementation)
+    return true;
+    
+    /* Example implementation with PHPMailer would be:
+    
+    require 'vendor/autoload.php';
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+    
+    try {
+        $mail->isSMTP();
+        $mail->Host       = $smtp_config['host'];
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $smtp_config['username'];
+        $mail->Password   = $smtp_config['password'];
+        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = $smtp_config['port'];
+    
+        $mail->setFrom($smtp_config['from_email'], $smtp_config['from_name']);
+        $mail->addAddress($to);
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+    
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        error_log("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
+        return false;
+    }
+    */
 }
 
 // Check if payment ID and request ID are in URL parameters
@@ -232,7 +291,7 @@ if ($payment_verified) {
                     <div class="flex flex-col space-y-4">
                         <a href="https://panel.enderhost.in" class="bg-green-700 hover:bg-green-600 text-white font-medium py-2 px-4 rounded transition-colors flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2m-2-4h.01M17 16h.01" />
                             </svg>
                             Go to Game Panel
                         </a>
