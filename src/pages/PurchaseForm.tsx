@@ -204,7 +204,6 @@ const PurchaseForm = () => {
     setFormData((prev) => ({ ...prev, payment_method: method }));
   };
 
-  // Helper function to get the icon for a spec
   const getSpecIcon = (spec: string) => {
     if (spec.includes("RAM")) return <Gauge className="w-5 h-5 flex-shrink-0 text-minecraft-secondary" />;
     if (spec.includes("CPU")) return <Cpu className="w-5 h-5 flex-shrink-0 text-minecraft-secondary" />;
@@ -216,7 +215,6 @@ const PurchaseForm = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-black">
-      {/* Hero background image */}
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
@@ -226,10 +224,8 @@ const PurchaseForm = () => {
         }}
       />
       
-      {/* Enhanced overlay gradient for better text contrast */}
       <div className="fixed inset-0 bg-gradient-to-t from-minecraft-dark via-black/85 to-black/40 z-0" />
       
-      {/* Grid background overlay */}
       <div
         className="fixed inset-0 grid-background z-0"
         style={{
@@ -238,7 +234,6 @@ const PurchaseForm = () => {
         }}
       />
 
-      {/* Back button */}
       <Button
         variant="ghost"
         size="sm"
@@ -249,11 +244,9 @@ const PurchaseForm = () => {
         Back to Home
       </Button>
 
-      {/* Main content */}
       <main className="flex-grow relative z-10">
         <div className="container mx-auto px-4 py-12 md:py-24">
           <div className="max-w-2xl mx-auto">
-            {/* Form header */}
             <div className="text-center mb-10">
               <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Purchase Your Minecraft Server
@@ -263,10 +256,8 @@ const PurchaseForm = () => {
               </p>
             </div>
 
-            {/* Purchase form */}
             <div className="bg-black/50 border border-white/10 rounded-xl p-6 md:p-8 backdrop-blur-sm shadow-xl">
               <form action="/payment_process.php" method="POST" className="space-y-6">
-                {/* Server Name */}
                 <div className="space-y-2">
                   <label
                     htmlFor="serverName"
@@ -285,7 +276,6 @@ const PurchaseForm = () => {
                   />
                 </div>
 
-                {/* Full Name */}
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
@@ -304,7 +294,6 @@ const PurchaseForm = () => {
                   />
                 </div>
 
-                {/* Email */}
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
@@ -324,13 +313,12 @@ const PurchaseForm = () => {
                   />
                 </div>
 
-                {/* Phone Number - New Field */}
                 <div className="space-y-2">
                   <label
                     htmlFor="phone"
                     className="text-sm font-medium text-white/90"
                   >
-                    Phone Number
+                    Phone Number (Optional)
                   </label>
                   <Input
                     id="phone"
@@ -340,11 +328,9 @@ const PurchaseForm = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="bg-black/70 border-white/10 text-white placeholder:text-gray-500"
-                    required
                   />
                 </div>
 
-                {/* Password */}
                 <div className="space-y-2">
                   <label
                     htmlFor="password"
@@ -364,7 +350,6 @@ const PurchaseForm = () => {
                   />
                 </div>
 
-                {/* Plan Selection */}
                 <div className="space-y-2">
                   <label
                     htmlFor="plan"
@@ -383,7 +368,6 @@ const PurchaseForm = () => {
                       <SelectValue placeholder="Select a Plan" />
                     </SelectTrigger>
                     <SelectContent className="bg-black/90 border-white/10 text-white max-h-80">
-                      {/* Group plans by category */}
                       <div className="p-1 text-xs uppercase text-white/50 font-medium">PLAY VANILLA</div>
                       {allPlans.filter(p => p.category === "PLAY VANILLA").map((plan) => (
                         <SelectItem key={plan.id} value={plan.id}>
@@ -408,7 +392,6 @@ const PurchaseForm = () => {
                   </Select>
                 </div>
 
-                {/* Show selected plan specs */}
                 {selectedPlan && (
                   <div className="space-y-3 bg-black/70 border border-white/10 rounded-md p-4 mt-4 backdrop-blur-sm">
                     <h3 className="font-medium text-white flex items-center gap-2">
@@ -442,7 +425,6 @@ const PurchaseForm = () => {
                   </div>
                 )}
 
-                {/* Payment Methods - Updated to only show images */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-white/90">
                     Payment Methods We Support
@@ -464,7 +446,6 @@ const PurchaseForm = () => {
                   <p className="text-xs text-gray-500 mt-1">We support these payment methods for your convenience.</p>
                 </div>
 
-                {/* Submit Button */}
                 <Button
                   type="submit"
                   className="w-full py-6 mt-6 bg-gradient-to-r from-minecraft-primary to-minecraft-secondary hover:from-minecraft-primary/90 hover:to-minecraft-secondary/90 text-white font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(94,66,227,0.3)]"
@@ -475,7 +456,6 @@ const PurchaseForm = () => {
               </form>
             </div>
 
-            {/* Additional info */}
             <div className="mt-8 text-center text-gray-500 text-sm">
               <p>
                 By proceeding, you agree to our{" "}
@@ -499,7 +479,6 @@ const PurchaseForm = () => {
         </div>
       </main>
 
-      {/* Simplified Footer */}
       <footer className="bg-black/50 border-t border-white/10 backdrop-blur-sm relative z-10">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">

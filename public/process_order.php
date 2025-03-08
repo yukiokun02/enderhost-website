@@ -1,4 +1,3 @@
-
 <?php
 // Database connection parameters - UPDATE THESE with your Oracle VM database credentials
 $servername = "localhost"; // This might stay the same unless your DB is on a different server
@@ -47,10 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Password is required";
     } elseif (strlen($password) < 8) {
         $errors[] = "Password must be at least 8 characters long";
-    }
-    
-    if (empty($phone)) {
-        $errors[] = "Phone number is required";
     }
     
     if (empty($plan)) {
