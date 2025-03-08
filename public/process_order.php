@@ -17,6 +17,37 @@ function sanitize_input($data) {
     return $data;
 }
 
+// Valid plans list - ensuring all plans from PurchaseForm.tsx and Pricing.tsx are included
+$valid_plans = [
+    // Vanilla Plans
+    "getting-woods",
+    "Getting Woods",
+    "getting-an-upgrade",
+    "Getting an Upgrade",
+    "stone-age",
+    "Stone Age",
+    "acquire-hardware",
+    "Acquire Hardware",
+    
+    // Modpack Plans
+    "isnt-it-iron-pick",
+    "Isn't It Iron Pick?",
+    "diamonds",
+    "Diamonds",
+    "ice-bucket-challenge",
+    "Ice Bucket Challenge",
+    
+    // Community Server Plans
+    "we-need-to-go-deeper",
+    "We Need to Go Deeper",
+    "hidden-in-the-depths",
+    "Hidden in the Depths",
+    "the-end",
+    "The End",
+    "sky-is-the-limit",
+    "Sky is the Limit"
+];
+
 // Process form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize and validate input
@@ -51,6 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (empty($plan)) {
         $errors[] = "Please select a plan";
+    } elseif (!in_array($plan, $valid_plans)) {
+        $errors[] = "Selected plan is invalid";
     }
     
     if (empty($payment_method)) {

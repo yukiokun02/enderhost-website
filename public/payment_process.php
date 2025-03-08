@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Instamojo Payment Integration for EnderHOST
@@ -22,23 +23,34 @@ $api_endpoint = 'https://www.instamojo.com/api/1.1/payment-requests/';
 // YOUR ACTUAL DOMAIN - Update this with your Oracle VM's public domain or IP
 $your_domain = "http://your-domain-or-ip.com"; // Replace with your actual domain or IP
 
-// Price mapping for different plans
+// Price mapping for different plans - Updated to include all plans from Pricing.tsx and PurchaseForm.tsx
 $plan_prices = [
     // Vanilla Plans
+    "getting-woods" => 159,
     "Getting Woods" => 159,
+    "getting-an-upgrade" => 349,
     "Getting an Upgrade" => 349,
+    "stone-age" => 529,
     "Stone Age" => 529,
+    "acquire-hardware" => 709,
     "Acquire Hardware" => 709,
     
     // Modpack Plans
+    "isnt-it-iron-pick" => 889,
     "Isn't It Iron Pick?" => 889,
+    "diamonds" => 1059,
     "Diamonds" => 1059,
+    "ice-bucket-challenge" => 1409,
     "Ice Bucket Challenge" => 1409,
     
     // Community Server Plans
+    "we-need-to-go-deeper" => 1759,
     "We Need to Go Deeper" => 1759,
+    "hidden-in-the-depths" => 2129,
     "Hidden in the Depths" => 2129,
+    "the-end" => 2899,
     "The End" => 2899,
+    "sky-is-the-limit" => 3399,
     "Sky is the Limit" => 3399
 ];
 
