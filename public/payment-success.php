@@ -36,6 +36,61 @@ function sanitize_input($data) {
     return $data;
 }
 
+// Function to send email notification to admin
+function send_admin_notification($order_details) {
+    $admin_email = "mail.enderhost@gmail.com"; // Admin email address
+    $subject = "New Server Purchase - " . $order_details['server_name'];
+    
+    // Prepare the email message
+    $message = "
+    <html>
+    <head>
+        <title>New Server Purchase</title>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+            h2 { color: #4CAF50; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+            table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+            th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+            th { background-color: #f2f2f2; }
+            .footer { margin-top: 20px; font-size: 12px; color: #777; }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <h2>New Minecraft Server Purchase</h2>
+            <p>A new server has been purchased. Here are the details:</p>
+            
+            <table>
+                <tr><th>Customer Name:</th><td>" . htmlspecialchars($order_details['full_name']) . "</td></tr>
+                <tr><th>Email:</th><td>" . htmlspecialchars($order_details['email']) . "</td></tr>
+                <tr><th>Phone:</th><td>" . htmlspecialchars($order_details['phone']) . "</td></tr>
+                <tr><th>Server Name:</th><td>" . htmlspecialchars($order_details['server_name']) . "</td></tr>
+                <tr><th>Plan:</th><td>" . htmlspecialchars($order_details['plan']) . "</td></tr>
+                <tr><th>Amount:</th><td>₹" . htmlspecialchars($order_details['amount']) . "</td></tr>
+                <tr><th>Transaction ID:</th><td>" . htmlspecialchars($order_details['transaction_id'] ?? 'N/A') . "</td></tr>
+                <tr><th>Payment ID:</th><td>" . htmlspecialchars($order_details['payment_id'] ?? 'N/A') . "</td></tr>
+            </table>
+            
+            <p>Please provision this server and send the login credentials to the customer.</p>
+            
+            <div class='footer'>
+                <p>This is an automated message from EnderHOST server.</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    ";
+    
+    // Set content-type header for sending HTML email
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From: EnderHOST <noreply@enderhost.in>" . "\r\n";
+    
+    // Send email
+    return mail($admin_email, $subject, $message, $headers);
+}
+
 // Check if payment ID and request ID are in URL parameters
 if (isset($_GET['payment_id']) && isset($_GET['payment_request_id'])) {
     $payment_id = sanitize_input($_GET['payment_id']);
@@ -87,6 +142,20 @@ if (isset($_GET['payment_id']) && isset($_GET['payment_request_id'])) {
                     
                     // For demonstration purposes, we'll just use session data
                     $purchase_data = isset($_SESSION['server_purchase']) ? $_SESSION['server_purchase'] : [];
+                    
+                    // Add payment IDs to the purchase data
+                    if (!empty($purchase_data)) {
+                        $purchase_data['payment_id'] = $payment_id;
+                        $purchase_data['transaction_id'] = $payment_request_id;
+                        
+                        // Send email notification to admin
+                        $email_sent = send_admin_notification($purchase_data);
+                        if (!$email_sent) {
+                            error_log('Failed to send admin notification email for payment: ' . $payment_id);
+                        } else {
+                            error_log('Admin notification email sent successfully for payment: ' . $payment_id);
+                        }
+                    }
                 } else {
                     $error_message = 'Payment was not completed successfully. Status: ' . ($payment_details['status'] ?? 'Unknown');
                     error_log('Payment verification failed: ' . $error_message);
