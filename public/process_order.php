@@ -1,9 +1,9 @@
 
 <?php
 // Database connection parameters - UPDATE THESE with your Oracle VM database credentials
-$servername = "localhost"; // This might stay the same unless your DB is on a different server
-$username = "your_db_username"; // Replace with your actual Oracle VM database username
-$password = "your_db_password"; // Replace with your actual Oracle VM database password
+$servername = "localhost"; 
+$username = "enderuser"; // Updated username
+$password = "your_secure_password"; // You should change this to your actual secure password
 $dbname = "enderhost";
 
 // Initialize error message array

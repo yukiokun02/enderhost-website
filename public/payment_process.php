@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Instamojo Payment Integration for EnderHOST
@@ -20,8 +19,8 @@ $salt = 'bf10d739a2a340f49a25c-c5e323d8626';
 // For production mode, use this:
 $api_endpoint = 'https://www.instamojo.com/api/1.1/payment-requests/';
 
-// YOUR ACTUAL DOMAIN - Update this with your Oracle VM's public domain or IP
-$your_domain = "http://your-domain-or-ip.com"; // Replace with your actual domain or IP
+// Update this with your actual domain name or IP address
+$your_domain = "http://yourdomain.com"; // Replace with your actual domain when deploying
 
 // Price mapping for different plans - Updated to include all plans from Pricing.tsx and PurchaseForm.tsx
 $plan_prices = [
