@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,17 +25,13 @@ const FloatingChat = () => {
     );
   };
 
+  // Enhanced wheel handling to prevent scroll propagation
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
+  // Improved wheel event handling
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-    const element = e.currentTarget;
-    const { scrollTop, scrollHeight, clientHeight } = element;
-    
-    if (
-      (scrollTop === 0 && e.deltaY < 0) || 
-      (scrollTop + clientHeight >= scrollHeight && e.deltaY > 0)
-    ) {
-      return;
-    }
-    
     e.stopPropagation();
   };
 
@@ -213,10 +210,10 @@ const FloatingChat = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-8 w-full max-w-md max-h-[500px] rounded-lg overflow-hidden shadow-xl z-50"
+            className="fixed bottom-24 right-8 w-full max-w-sm max-h-[450px] rounded-lg overflow-hidden shadow-xl z-50"
           >
             <div className="flex flex-col h-full">
-              <div className="bg-minecraft-primary p-4 flex justify-between items-center">
+              <div className="bg-minecraft-primary p-3 flex justify-between items-center">
                 <h3 className="text-lg font-semibold text-white">EnderHOST Support</h3>
                 <button 
                   onClick={toggleChat}
@@ -254,8 +251,13 @@ const FloatingChat = () => {
 
               <div 
                 className="flex-1 overflow-y-auto bg-black/70 backdrop-blur-md p-4" 
+                onScroll={handleScroll}
                 onWheel={handleWheel}
-                style={{ overscrollBehavior: 'contain' }}
+                style={{ 
+                  overscrollBehavior: 'contain',
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: 'rgba(94, 66, 227, 0.5) rgba(0, 0, 0, 0.1)'
+                }}
               >
                 <div className="space-y-3">
                   {activeSection === 'faq' ? (
