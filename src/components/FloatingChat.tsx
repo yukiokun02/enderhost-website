@@ -1,5 +1,5 @@
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, TouchEvent } from "react";
 import { MessageSquare, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -14,6 +14,7 @@ const FloatingChat = () => {
   const [activeSection, setActiveSection] = useState<'faq' | 'troubleshooting'>('faq');
   const [expandedFaqs, setExpandedFaqs] = useState<number[]>([]);
   const chatRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const toggleChat = () => setIsOpen(!isOpen);
   
@@ -25,14 +26,26 @@ const FloatingChat = () => {
     );
   };
 
-  // Enhanced wheel handling to prevent scroll propagation
+  // Enhanced event handling for both wheel and touch events
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
 
-  // Improved wheel event handling
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
     e.stopPropagation();
+  };
+
+  // Handle touch events for mobile
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    if (contentRef.current) {
+      e.stopPropagation();
+    }
+  };
+
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    if (contentRef.current) {
+      e.stopPropagation();
+    }
   };
 
   useEffect(() => {
@@ -44,6 +57,25 @@ const FloatingChat = () => {
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
+  // Specifically handle the chat icon click to toggle the chat
+  const handleChatIconClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleChat();
+  };
+
+  // Prevent background scrolling when chat is open (mobile)
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
   const faqs: FAQ[] = [
@@ -195,7 +227,7 @@ const FloatingChat = () => {
   return (
     <>
       <button
-        onClick={toggleChat}
+        onClick={handleChatIconClick}
         className="fixed bottom-8 right-8 p-4 bg-minecraft-secondary rounded-full shadow-lg hover:bg-minecraft-primary transition-colors duration-300 text-white z-50"
         aria-label="Support Chat"
       >
@@ -211,6 +243,7 @@ const FloatingChat = () => {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             className="fixed bottom-24 right-8 w-full max-w-sm max-h-[450px] rounded-lg overflow-hidden shadow-xl z-50"
+            onClick={(e) => e.stopPropagation()} // Prevent clicks from reaching background
           >
             <div className="flex flex-col h-full">
               <div className="bg-minecraft-primary p-3 flex justify-between items-center">
@@ -250,13 +283,20 @@ const FloatingChat = () => {
               </div>
 
               <div 
+                ref={contentRef}
                 className="flex-1 overflow-y-auto bg-black/70 backdrop-blur-md p-4" 
                 onScroll={handleScroll}
                 onWheel={handleWheel}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
                 style={{ 
                   overscrollBehavior: 'contain',
+                  WebkitOverflowScrolling: 'touch',
                   scrollbarWidth: 'thin',
-                  scrollbarColor: 'rgba(94, 66, 227, 0.5) rgba(0, 0, 0, 0.1)'
+                  scrollbarColor: 'rgba(94, 66, 227, 0.5) rgba(0, 0, 0, 0.1)',
+                  touchAction: 'pan-y',
+                  position: 'relative',
+                  zIndex: 60
                 }}
               >
                 <div className="space-y-3">
