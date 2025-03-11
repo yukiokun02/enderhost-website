@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,7 +24,20 @@ const FloatingChat = () => {
     );
   };
 
-  // Close chat when clicking outside
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const element = e.currentTarget;
+    const { scrollTop, scrollHeight, clientHeight } = element;
+    
+    if (
+      (scrollTop === 0 && e.deltaY < 0) || 
+      (scrollTop + clientHeight >= scrollHeight && e.deltaY > 0)
+    ) {
+      return;
+    }
+    
+    e.stopPropagation();
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (chatRef.current && !chatRef.current.contains(event.target as Node) && isOpen) {
@@ -185,7 +197,6 @@ const FloatingChat = () => {
 
   return (
     <>
-      {/* Floating Chat Button */}
       <button
         onClick={toggleChat}
         className="fixed bottom-8 right-8 p-4 bg-minecraft-secondary rounded-full shadow-lg hover:bg-minecraft-primary transition-colors duration-300 text-white z-50"
@@ -194,7 +205,6 @@ const FloatingChat = () => {
         <MessageSquare className="w-6 h-6" />
       </button>
 
-      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -206,7 +216,6 @@ const FloatingChat = () => {
             className="fixed bottom-24 right-8 w-full max-w-md max-h-[500px] rounded-lg overflow-hidden shadow-xl z-50"
           >
             <div className="flex flex-col h-full">
-              {/* Chat Header */}
               <div className="bg-minecraft-primary p-4 flex justify-between items-center">
                 <h3 className="text-lg font-semibold text-white">EnderHOST Support</h3>
                 <button 
@@ -218,7 +227,6 @@ const FloatingChat = () => {
                 </button>
               </div>
 
-              {/* Tab Navigation */}
               <div className="bg-minecraft-dark/80 backdrop-blur-lg p-1 flex">
                 <button 
                   onClick={() => setActiveSection('faq')}
@@ -244,8 +252,11 @@ const FloatingChat = () => {
                 </button>
               </div>
 
-              {/* Chat Content */}
-              <div className="flex-1 overflow-y-auto bg-black/70 backdrop-blur-md p-4">
+              <div 
+                className="flex-1 overflow-y-auto bg-black/70 backdrop-blur-md p-4" 
+                onWheel={handleWheel}
+                style={{ overscrollBehavior: 'contain' }}
+              >
                 <div className="space-y-3">
                   {activeSection === 'faq' ? (
                     faqs.map((faq, index) => (
@@ -299,7 +310,6 @@ const FloatingChat = () => {
                 </div>
               </div>
 
-              {/* Chat Footer */}
               <div className="bg-minecraft-dark/80 backdrop-blur-lg p-3 text-center">
                 <p className="text-xs text-gray-400">
                   Need more help? <a href="https://discord.gg/bsGPB9VpUY" target="_blank" rel="noopener noreferrer" className="text-minecraft-secondary hover:underline">Join our Discord</a>
