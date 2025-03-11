@@ -18,7 +18,6 @@ export default function Footer() {
               <span className="text-2xl font-bold">
                 <span className="text-white">Ender</span>
                 <span className="text-minecraft-secondary">HOST</span>
-                <sup className="text-xs">®</sup>
               </span>
             </div>
             <p className="text-gray-400 text-base mb-6 max-w-md">
@@ -99,7 +98,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="col-span-1 md:col-span-2 lg:col-span-4 pt-10 border-t border-white/10 mt-6">
             <p className="text-gray-400 text-base">
-              Copyright © {new Date().getFullYear()} EnderHOST<sup className="text-xs">®</sup>. All rights reserved.
+              Copyright © {new Date().getFullYear()} EnderHOST. All rights reserved.
             </p>
           </div>
         </div>

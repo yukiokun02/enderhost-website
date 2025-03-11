@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Server, Menu, X, IndianRupee, ChevronDown, Settings, CreditCard } from "lucide-react";
+import { Menu, X, ChevronDown, Settings, CreditCard, IndianRupee } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
@@ -31,7 +31,6 @@ export default function Navigation() {
               <span className="font-bold text-lg">
                 <span className="text-white">Ender</span>
                 <span className="text-minecraft-secondary">HOST</span>
-                <sup className="text-xs">®</sup>
               </span>
             </a>
 
